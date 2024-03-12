@@ -8,7 +8,7 @@ import {
 
 const Navabr = () => {
   return (
-    <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
+    <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 z-10">
       <Link className="mr-6" href="/">
         <AvatarDemo />
       </Link>
