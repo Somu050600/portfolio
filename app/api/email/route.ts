@@ -45,6 +45,6 @@ export async function POST(request: NextRequest) {
     await sendMailPromise();
     return NextResponse.json({ message: "Email sent successfully" });
   } catch (err) {
-    return NextResponse.json({ error: err }, { status: 500 });
+    return NextResponse.json({ message: "Error: " + err }, { status: 500 });
   }
 }

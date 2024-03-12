@@ -42,7 +42,6 @@ export default function Contact() {
       "Friday",
       "Saturday",
     ];
-    console.log("Today is : " + daylist[day] + ".");
     const hour = today.getHours();
     const minute = today.getMinutes();
     const second = today.getSeconds();
