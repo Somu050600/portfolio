@@ -1,9 +1,35 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronRightIcon } from "./utils";
 
+export interface ProjectsModel {
+  id: Number;
+  project_title: string;
+  brief_desc: string;
+  company_name: string;
+  location: string;
+  start_date: string;
+  end_date: string;
+  skills: string[];
+  img_url: string;
+  description: string[];
+}
+
 const Projects = () => {
+  const [data, setData] = useState<ProjectsModel[]>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetch("/api/projects", { method: "GET" })
+        .then((res) => res.json())
+        .then((res) => setData(res));
+    };
+    fetchData();
+  }, []);
+
   return (
     <div id="projects" className="w-full py-12 md:py-12 lg:py-12">
       <div className="container grid items-center gap-4 px-4 md:px-6">
@@ -14,78 +40,40 @@ const Projects = () => {
           <p className="text-gray-500 dark:text-gray-400">Sleek and modern.</p>
         </div>
         <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
-          <div className="group overflow-hidden rounded-xl shadow-lg">
-            <Image
-              alt="Project 1"
-              className="object-cover transition-transform group-hover:scale-105 aspect-[3/2]"
-              height="400"
-              src="/placeholder.svg"
-              width="600"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-bold leading-none">Project One</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Description for Project One
-              </p>
-            </div>
-            <div className="p-6 flex items-end">
-              <Link
-                className="inline-flex items-center underline hover:text-gray-900 transition-colors"
-                href="#"
+          {data?.map((item) => {
+            return (
+              <div
+                key={item.brief_desc}
+                className="group overflow-hidden rounded-xl shadow-lg"
               >
-                View Project
-                <ChevronRightIcon className="w-4 h-4 ml-1.5 peer" />
-              </Link>
-            </div>
-          </div>
-          <div className="group overflow-hidden rounded-xl shadow-lg">
-            <Image
-              alt="Project 2"
-              className="object-cover transition-transform group-hover:scale-105 aspect-[3/2]"
-              height="400"
-              src="/placeholder.svg"
-              width="600"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-bold leading-none">Project Two</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Description for Project Two
-              </p>
-            </div>
-            <div className="p-6 flex items-end">
-              <Link
-                className="inline-flex items-center underline hover:text-gray-900 transition-colors"
-                href="#"
-              >
-                View Project
-                <ChevronRightIcon className="w-4 h-4 ml-1.5 peer" />
-              </Link>
-            </div>
-          </div>
-          <div className="group overflow-hidden rounded-xl shadow-lg">
-            <Image
-              alt="Project 3"
-              className="object-cover transition-transform group-hover:scale-105 aspect-[3/2]"
-              height="400"
-              src="/placeholder.svg"
-              width="600"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-bold leading-none">Project Three</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Description for Project Three
-              </p>
-            </div>
-            <div className="p-6 flex items-end">
-              <Link
-                className="inline-flex items-center underline hover:text-gray-900 transition-colors"
-                href="#"
-              >
-                View Project
-                <ChevronRightIcon className="w-4 h-4 ml-1.5 peer" />
-              </Link>
-            </div>
-          </div>
+                <Image
+                  unoptimized
+                  alt="Experience 1"
+                  className="object-cover transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
+                  height="400"
+                  src={item.img_url}
+                  width="600"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold leading-none">
+                    {item.project_title}
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {item.brief_desc}
+                  </p>
+                </div>
+                <div className="p-6 flex items-end">
+                  <Link
+                    className="inline-flex items-center underline hover:text-gray-900 transition-colors"
+                    href="#"
+                  >
+                    View Project
+                    <ChevronRightIcon className="w-4 h-4 ml-1.5 peer" />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

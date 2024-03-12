@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "job_title": "Front-End Developer",
+    "company_title": "MatBook",
+    "company_name": "Matbook Tech Pvt. Ltd",
+    "location": "Remote",
+    "start_date": "Nov 2023",
+    "end_date": "Present",
+    "skills": ["React"],
+    "img_url": "https://placehold.co/600x400/EEE/FFF",
+    "description": [
+      "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
+      "Developed intuitive user interfaces that seamlessly showcase the company’s diverse range of products.",
+      "Leveraged AWS S3 buckets for file storage and CloudFront CDN to optimize image loading and caching.",
+      "Employed OAuth for secure authentication, Redux for efficient state management, and implemented comprehensive error handling with TypeScript for enhanced code readability, maintainability, and a seamless user experience."
+    ]
+  },
+  {
+    "id": 2,
+    "job_title": "Front-End Developer",
+    "company_title": "SortingHat",
+    "company_name": "Sortinghat Software Pvt. Ltd",
+    "location": "Remote",
+    "start_date": "Nov 2023",
+    "end_date": "Present",
+    "skills": ["React"],
+    "img_url": "https://placehold.co/600x400/EEE/FFF",
+    "description": [
+      "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
+      "Developed intuitive user interfaces that seamlessly showcase the company’s diverse range of products.",
+      "Leveraged AWS S3 buckets for file storage and CloudFront CDN to optimize image loading and caching.",
+      "Employed OAuth for secure authentication, Redux for efficient state management, and implemented comprehensive error handling with TypeScript for enhanced code readability, maintainability, and a seamless user experience."
+    ]
+  },
+  {
+    "id": 3,
+    "job_title": "FullStack Developer Intern",
+    "company_title": "ApplyIn",
+    "company_name": "Wayte Technologies Pvt. Ltd",
+    "location": "Remote",
+    "start_date": "Nov 2023",
+    "end_date": "Present",
+    "skills": ["React"],
+    "img_url": "https://placehold.co/600x400/EEE/FFF",
+    "description": [
+      "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
+      "Developed intuitive user interfaces that seamlessly showcase the company’s diverse range of products.",
+      "Leveraged AWS S3 buckets for file storage and CloudFront CDN to optimize image loading and caching.",
+      "Employed OAuth for secure authentication, Redux for efficient state management, and implemented comprehensive error handling with TypeScript for enhanced code readability, maintainability, and a seamless user experience."
+    ]
+  }
+]
