@@ -100,7 +100,9 @@ export default function Contact() {
                   <h2 className="text-lg font-semibold">
                     Eega Somasekhara Reddy
                   </h2>
-                  <p className="text-sm text-gray-500">Full Stack Developer</p>
+                  <p className="text-sm text-gray-500">
+                    Full-Stack Web Developer
+                  </p>
                 </div>
               </CardContent>
               <CardContent className="flex flex-col items-center space-y-2">

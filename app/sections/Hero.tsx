@@ -15,7 +15,7 @@ const Hero = () => {
             Hi, I’m Somu
           </h1>
           <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-            I’m a passionate web developer with a love for creating
+            I’m a passionate full-stack web developer with a love for creating
             user-friendly and elegant websites.
           </p>
         </div>
