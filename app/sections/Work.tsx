@@ -49,11 +49,10 @@ const Work = () => {
                 className="group overflow-hidden rounded-xl shadow-lg"
               >
                 <Image
-                  unoptimized
                   alt="Experience 1"
-                  className="object-cover transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
+                  className="img_skeleton object-cover transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
                   height="400"
-                  src={item.img_url}
+                  src={"https://d3m0gx63bo3yvr.cloudfront.net/" + item.img_url}
                   width="600"
                 />
                 <div className="p-6">

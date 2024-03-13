@@ -23,9 +23,15 @@ const Projects = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetch("/api/projects", { method: "GET" })
+      await fetch("/api/projects", {
+        method: "GET",
+        next: { revalidate: 1 },
+      })
         .then((res) => res.json())
-        .then((res) => setData(res));
+        .then((res) => {
+          // console.log(res);
+          setData(res);
+        });
     };
     fetchData();
   }, []);
@@ -49,9 +55,9 @@ const Projects = () => {
                 <Image
                   unoptimized
                   alt="Experience 1"
-                  className="object-cover transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
+                  className="img_skeleton object-cover transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
                   height="400"
-                  src={item.img_url}
+                  src={"https://d3m0gx63bo3yvr.cloudfront.net/" + item.img_url}
                   width="600"
                 />
                 <div className="p-6">
