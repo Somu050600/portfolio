@@ -52,6 +52,7 @@ const Projects = () => {
         <div className="space-y-4">
           <h2
             data-aos="fade-up"
+            data-aos-offset="0"
             data-aos-delay="200"
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
           >
@@ -59,6 +60,7 @@ const Projects = () => {
           </h2>
           <p
             data-aos="fade-up"
+            data-aos-offset="0"
             data-aos-delay="250"
             className="text-gray-500 dark:text-gray-400"
           >
