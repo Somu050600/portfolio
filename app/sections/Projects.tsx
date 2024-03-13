@@ -72,7 +72,7 @@ const Projects = () => {
                 key={item.brief_desc}
                 data-aos="fade-up"
                 data-aos-offset="50"
-                data-aos-delay="300"
+                data-aos-delay={index === 0 ? "300" : "0"}
                 data-aos-duration={300 + index * 100}
                 className="flex flex-col group overflow-hidden rounded-xl shadow-lg border"
               >
