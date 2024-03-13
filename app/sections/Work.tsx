@@ -46,18 +46,24 @@ const Work = () => {
     <div id="work" className="w-full py-12 md:py-12 lg:py-12">
       <div className="container grid items-center gap-4 px-4 md:px-6">
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <h2
+            data-aos="fade-up"
+            className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+          >
             Work Experience
           </h2>
-          <p className="text-gray-500 dark:text-gray-400">
+          <p data-aos="fade-up" className="text-gray-500 dark:text-gray-400">
             Details about my work experience.
           </p>
         </div>
         <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
-          {data?.map((item) => {
+          {data?.map((item, index) => {
             return (
               <div
                 key={item.company_title}
+                data-aos="fade-up"
+                data-aos-offset="100"
+                data-aos-duration={300 + index * 100}
                 className="flex flex-col group overflow-hidden rounded-xl shadow-lg border"
               >
                 <Image

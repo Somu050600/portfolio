@@ -6,8 +6,6 @@ import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const url = "https://d3m0gx63bo3yvr.cloudfront.net/og_Somu%20_%20portfolio.png";
-
 export const metadata: Metadata = {
   title: "Somu | Full Stack Web Developer",
   description:

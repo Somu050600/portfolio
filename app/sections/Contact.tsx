@@ -84,15 +84,26 @@ export default function Contact() {
     <div id="contact" className="w-full py-12 md:py-24 lg:py-24">
       <div className="container grid items-center gap-4 px-4 md:px-6">
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <h2
+            data-aos="fade-up"
+            className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+          >
             Contact Me
           </h2>
-          <p className="text-gray-500 dark:text-gray-400">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="50"
+            className="text-gray-500 dark:text-gray-400"
+          >
             Send me a message or connect with me on social media.
           </p>
         </div>
         <div className="w-full flex flex-col md:grid grid-cols-7 place-items-center gap-1 mt-12">
-          <div className="mx-auto md:ml-0 max-w-full self-start items-stretch col-span-3 space-y-6">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="150"
+            className="mx-auto md:ml-0 max-w-full self-start items-stretch col-span-3 space-y-6"
+          >
             <Card className="w-full border-none">
               <CardContent className="flex flex-col items-center space-y-2">
                 <AvatarDemo />
@@ -164,7 +175,11 @@ export default function Contact() {
             </Card>
           </div>
           <Separator orientation="vertical" className="my-4" />
-          <div className="mx-auto max-w-[400px] self-start md:ml-0 col-span-3 space-y-6">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="150"
+            className="mx-auto max-w-[400px] self-start md:ml-0 col-span-3 space-y-6"
+          >
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-2 gap-4 mb-3">
                 <Label className="text-sm self-center" htmlFor="name">
