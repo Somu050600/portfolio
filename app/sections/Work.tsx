@@ -46,7 +46,7 @@ const Work = () => {
             return (
               <div
                 key={item.company_title}
-                className="group overflow-hidden rounded-xl shadow-lg"
+                className="flex flex-col group overflow-hidden rounded-xl shadow-lg border"
               >
                 <Image
                   alt="Experience 1"
@@ -55,7 +55,7 @@ const Work = () => {
                   src={"https://d3m0gx63bo3yvr.cloudfront.net/" + item.img_url}
                   width="600"
                 />
-                <div className="p-6">
+                <div className="p-6 ">
                   <h3 className="text-xl font-bold leading-none">
                     {item.job_title}
                   </h3>
@@ -63,7 +63,7 @@ const Work = () => {
                     {item.company_name}
                   </p>
                 </div>
-                <div className="p-6 flex items-end">
+                <div className="w-full py-3 px-6 mt-auto self-baseline flex items-end">
                   <Link
                     className="inline-flex items-center underline hover:text-gray-900 transition-colors"
                     href="#"
