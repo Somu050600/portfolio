@@ -4,6 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { ChevronRightIcon } from "./utils";
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Badge } from "@/components/ui/badge";
 
 export interface WorkExperienceModel {
   id: Number;
@@ -63,14 +75,55 @@ const Work = () => {
                     {item.company_name}
                   </p>
                 </div>
-                <div className="w-full py-3 px-6 mt-auto self-baseline flex items-end">
-                  <Link
-                    className="inline-flex items-center underline hover:text-gray-900 transition-colors"
-                    href="#"
-                  >
-                    View Experience
-                    <ChevronRightIcon className="w-4 h-4 ml-1.5 peer" />
-                  </Link>
+                <div className="w-full py-3 px-6 mt-auto self-baseline flex justify-between items-end">
+                  <Drawer>
+                    <DrawerTrigger>
+                      <Button variant={"link"} className="p-0">
+                        View details
+                      </Button>
+                    </DrawerTrigger>
+                    <DrawerContent className="flex items-center">
+                      <DrawerHeader className="w-full md:w-[60vw]">
+                        <DrawerTitle className=" text-xl">
+                          {item.job_title} at {item.company_title}
+                        </DrawerTitle>
+                        <span className="pb-6">{item.company_name}</span>
+                        <div className="p-3">
+                          {item.skills.map((skill) => (
+                            <Badge key={skill} className="mr-3">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                        <DrawerDescription>
+                          <ol className="relative border-s border-gray-200 dark:border-gray-700 max-h-[50vh] md:max-h-[80vh] overflow-y-scroll scrollbar-hide">
+                            {item.description.map((point, index) => {
+                              return (
+                                <li className="mb-5 ms-4" key={index}>
+                                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                                  {index === 0 && (
+                                    <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                      {item.start_date} - {item.end_date}
+                                    </time>
+                                  )}
+                                  <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                                    {point}
+                                  </p>
+                                </li>
+                              );
+                            })}
+                          </ol>
+                        </DrawerDescription>
+                      </DrawerHeader>
+                      <DrawerFooter className="w-full md:w-[60vw]">
+                        <DrawerClose>
+                          <Button variant="default" className="w-64">
+                            Close
+                          </Button>
+                        </DrawerClose>
+                      </DrawerFooter>
+                    </DrawerContent>
+                  </Drawer>
                 </div>
               </div>
             );

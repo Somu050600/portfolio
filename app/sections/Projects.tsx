@@ -4,17 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { ChevronRightIcon } from "./utils";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export interface ProjectsModel {
   id: Number;
   project_title: string;
   brief_desc: string;
-  company_name: string;
-  location: string;
   start_date: string;
-  end_date: string;
   skills: string[];
   img_url: string;
+  project_url: string;
   description: string[];
 }
 
@@ -68,14 +78,60 @@ const Projects = () => {
                     {item.brief_desc}
                   </p>
                 </div>
-                <div className="w-full py-3 px-6 mt-auto self-baseline flex items-end">
-                  <Link
-                    className="inline-flex items-center underline hover:text-gray-900 transition-colors"
-                    href="#"
-                  >
-                    View Project
-                    <ChevronRightIcon className="w-4 h-4 ml-1.5 peer" />
-                  </Link>
+                <div className="w-full py-3 px-6 mt-auto self-baseline flex justify-between items-end">
+                  <Drawer>
+                    <DrawerTrigger>
+                      <Button variant={"link"} className="p-0">
+                        View details
+                      </Button>
+                    </DrawerTrigger>
+                    <DrawerContent className="flex items-center">
+                      <DrawerHeader className="w-full md:w-[60vw]">
+                        <DrawerTitle className="pb-6 text-xl">
+                          {item.project_title}
+                        </DrawerTitle>
+                        <div className="p-3">
+                          {item.skills.map((skill) => (
+                            <Badge key={skill} className="mr-3">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                        <DrawerDescription>
+                          <ol className="relative border-s border-gray-200 dark:border-gray-700">
+                            {item.description.map((point, index) => {
+                              return (
+                                <li className="mb-5 ms-4" key={index}>
+                                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                                  {index === 0 && (
+                                    <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                      {item.start_date}
+                                    </time>
+                                  )}
+                                  <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                                    {point}
+                                  </p>
+                                </li>
+                              );
+                            })}
+                          </ol>
+                        </DrawerDescription>
+                      </DrawerHeader>
+                      <DrawerFooter className="w-full md:w-[60vw]">
+                        <Link
+                          href={item.project_url}
+                          className="self-center py-2"
+                        >
+                          View Project -{">"}
+                        </Link>
+                        <DrawerClose>
+                          <Button variant="default" className="w-64">
+                            Close
+                          </Button>
+                        </DrawerClose>
+                      </DrawerFooter>
+                    </DrawerContent>
+                  </Drawer>
                 </div>
               </div>
             );

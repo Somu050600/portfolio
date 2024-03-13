@@ -3,51 +3,43 @@
     "id": 1,
     "project_title": "Listed Dashboard - Frontend",
     "brief_desc": "Crafting React Magic: API whispers data, app dances with charts. One page, boundless insights.",
-    "company_name": "Matbook Tech Pvt. Ltd",
-    "location": "Remote",
-    "start_date": "Nov 2023",
-    "end_date": "Present",
-    "skills": ["React"],
+    "start_date": "Feb. 2023",
+    "skills": ["React", "OAuth", "Chart.js"],
     "img_url": "Listed_board.webp",
+    "project_url": "https://github.com/Somu050600/listed-assignment",
     "description": [
-      "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
-      "Developed intuitive user interfaces that seamlessly showcase the company’s diverse range of products.",
-      "Leveraged AWS S3 buckets for file storage and CloudFront CDN to optimize image loading and caching.",
-      "Employed OAuth for secure authentication, Redux for efficient state management, and implemented comprehensive error handling with TypeScript for enhanced code readability, maintainability, and a seamless user experience."
+      "Developed a front-end web application using with Public APIs serving a APIs with React as the frontend.",
+      "Utilized Axios for data retrieval from APIs and integrated Chart.Js to create effective data visualizations.",
+      "Ensured mobile responsiveness through the application of responsive design principles and CSS media queries, adapting the single-page application’s layout and components to offer an optimal user experience on various devices with different screen sizes and orientations."
     ]
   },
   {
     "id": 2,
     "project_title": "Wallet App - React Native",
     "brief_desc": "Safely store all your cards in a secure digital vault.",
-    "company_name": "Sortinghat Software Pvt. Ltd",
-    "location": "Remote",
-    "start_date": "Nov 2023",
-    "end_date": "Present",
-    "skills": ["React"],
+    "start_date": "June 2023",
+    "skills": ["React Native", "React Native Paper"],
     "img_url": "wallet_app.webp",
+    "project_url": "https://github.com/Somu050600/wallet-app",
     "description": [
-      "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
-      "Developed intuitive user interfaces that seamlessly showcase the company’s diverse range of products.",
-      "Leveraged AWS S3 buckets for file storage and CloudFront CDN to optimize image loading and caching.",
-      "Employed OAuth for secure authentication, Redux for efficient state management, and implemented comprehensive error handling with TypeScript for enhanced code readability, maintainability, and a seamless user experience."
+      "Developed a Wallet app using React Native and React Native Paper, with a focus on building a secure wallet that can hold cerdit/debit cards locally.",
+      "Developed and implemented templates along with a comprehensive suite of RESTful APIs to effectively present the requested data in an organized manner.",
+      "Manual Testing of API in Postman to verify the API calls and also conducted unittest to ensure the system was free from errors and could handle high volumes of user requests."
     ]
   },
   {
     "id": 3,
     "project_title": "The VeganHof ",
     "brief_desc": "Delight your palate while nurturing the planet – VeganHof",
-    "company_name": "Wayte Technologies Pvt. Ltd",
-    "location": "Remote",
-    "start_date": "Nov 2023",
-    "end_date": "Present",
-    "skills": ["React"],
+    "start_date": "May 2023",
+    "skills": ["React", "OAuth", "JWT", "Django"],
     "img_url": "The_VeganHof.jpeg",
+    "project_url": "https://github.com/Somu050600/the-vegan-hof",
     "description": [
-      "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
-      "Developed intuitive user interfaces that seamlessly showcase the company’s diverse range of products.",
-      "Leveraged AWS S3 buckets for file storage and CloudFront CDN to optimize image loading and caching.",
-      "Employed OAuth for secure authentication, Redux for efficient state management, and implemented comprehensive error handling with TypeScript for enhanced code readability, maintainability, and a seamless user experience."
+      "",
+      "Developed a secure authentication system utilizing JWT tokens to ensure access to the home page is restricted to authorized users only. Coockies management allows users to remain logged in even after restarting the window.",
+      "Integrated Google OAuth login feature, enhancing user experience by providing a convenient login process.",
+      "Leveraged RESTful APIs to perform CRUD (create, read, update, delete) operations for efficient data handling."
     ]
   }
 ]

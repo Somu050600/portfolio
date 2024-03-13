@@ -7,7 +7,7 @@
     "location": "Remote",
     "start_date": "Nov 2023",
     "end_date": "Present",
-    "skills": ["React"],
+    "skills": ["TypeScript", "React", "OAuth", "Redux"],
     "img_url": "matbook_landingpage.png",
     "description": [
       "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
@@ -22,15 +22,16 @@
     "company_title": "SortingHat",
     "company_name": "Sortinghat Software Pvt. Ltd",
     "location": "Remote",
-    "start_date": "Nov 2023",
+    "start_date": "Sep 2023",
     "end_date": "Present",
-    "skills": ["React"],
+    "skills": ["TypeScript", "JavaScript", "React", "Stripe"],
     "img_url": "Ilt_app.webp",
     "description": [
-      "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
-      "Developed intuitive user interfaces that seamlessly showcase the company’s diverse range of products.",
-      "Leveraged AWS S3 buckets for file storage and CloudFront CDN to optimize image loading and caching.",
-      "Employed OAuth for secure authentication, Redux for efficient state management, and implemented comprehensive error handling with TypeScript for enhanced code readability, maintainability, and a seamless user experience."
+      "Developed an interactive web application using React, TypeScript, and Material UI to visualize student performance data at ILT, school, and district levels. This application leverages Chart.js to create insightful data visualizations, empowering educators and administrators to make informed decisions.",
+      "Developed a comprehensive meeting scheduling and management module within the web application, empowering facilitators to schedule meetings allowing users to participate based on their roles, which includes conditional functionalities like checking attendance, adding issues, updating to-do’s, contributing notes, and providing feedback",
+      "Designed and implemented an access control system, assigning user roles to govern access permissions for internal dashboards, Which includes read, write, and no-view privileges.",
+      "Designed and implemented pricing tables, payment workflows, including installment options, for product sales, seamlessly integrating various payment gateways along with billing invoices using Stripe’s payments infrastructure.",
+      "Integrated an AI chat bot utilizing the Gemini API to dynamically generate responses tailored to the specific web-page content, offering relevant information, answering questions, and facilitating a personalized user experience."
     ]
   },
   {
@@ -39,15 +40,16 @@
     "company_title": "ApplyIn",
     "company_name": "Wayte Technologies Pvt. Ltd",
     "location": "Remote",
-    "start_date": "Nov 2023",
-    "end_date": "Present",
-    "skills": ["React"],
+    "start_date": "June 2023",
+    "end_date": "Nov 2023",
+    "skills": ["JavaScript", "React", "Django"],
     "img_url": "applyin_homepage.jpg",
     "description": [
-      "Built a scalable e-commerce app using React and TypeScript for product showcasing, estimation, and order tracking. Optimized performance with efficient components and design patterns",
-      "Developed intuitive user interfaces that seamlessly showcase the company’s diverse range of products.",
-      "Leveraged AWS S3 buckets for file storage and CloudFront CDN to optimize image loading and caching.",
-      "Employed OAuth for secure authentication, Redux for efficient state management, and implemented comprehensive error handling with TypeScript for enhanced code readability, maintainability, and a seamless user experience."
+      "Contributed to the developement a Chrome Extension using JavaScript, TypeScript, React, Django, and SQL(Postgres), achieving a 60-80 percent reduction in time for form filling and task automation.",
+      "Enhanced user registration with seamless Google and LinkedIn authentication, reducing sign-up time threefold.",
+      "Developed a dynamic interview preparation page, seamlessly integrating it with GPT and Whisper APIs to facilitate the analysis of user responses, including audio responses, and provide constructive feedback.",
+      "Implemented audio recording and speech-to-text conversion features within the interview platform.",
+      "Ensured seamless user interactions, offering valuable feedback and suggestions for filler word reduction during interview practice, and implemented mobile responsiveness to enhance the page’s usability across various devices."
     ]
   }
 ]
