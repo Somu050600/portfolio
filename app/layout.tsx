@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navabr from "./sections/Navabr";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,6 +54,7 @@ export default function RootLayout({
         <Navabr />
         <main>{children}</main>
         <Toaster />
+        <SpeedInsights />
       </body>
     </html>
   );
