@@ -139,7 +139,7 @@ export default function Contact() {
               </CardContent>
               <CardContent className="flex justify-center space-x-4">
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
                   href="https://github.com/Somu050600"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -147,7 +147,7 @@ export default function Contact() {
                   <Image src={GithubIcon} alt="Github" width={30} />
                 </Link>
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
                   href="https://www.linkedin.com/in/somueega"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -155,7 +155,7 @@ export default function Contact() {
                   <Image src={LinkedinIcon} alt="Li" width={30} />
                 </Link>
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
                   href="https://twitter.com/ESomu1"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -166,7 +166,7 @@ export default function Contact() {
               <CardFooter className="flex justify-center">
                 <Link
                   href="mailto:somasekhareega@gmail.com"
-                  className="px-16 py-2 rounded text-white bg-gray-900 hover:bg-gray-800"
+                  className="px-16 py-2 rounded text-white bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-slate-100 dark:text-black"
                 >
                   Hire Me
                 </Link>

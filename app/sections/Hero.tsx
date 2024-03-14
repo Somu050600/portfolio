@@ -5,10 +5,10 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="w-full relative py-20 md:py-24 lg:py-32 xl:py-40 dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2]"
+      className="w-full relative py-20 md:py-24 lg:py-32 xl:py-40 dark:bg-[#0A0A0A]  bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2]"
     >
       {/* Radial gradient for the container to give a faded look */}
-      <div className="w-full h-full absolute  pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] z-0" />
+      <div className="w-full h-full absolute  pointer-events-none inset-0 flex items-center justify-center dark:bg-[#0A0A0A] bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] z-0" />
       <div className="container grid items-center gap-4 px-4 text-center md:px-6 ">
         <div className="space-y-4 z-10">
           <h1

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navabr from "./sections/Navabr";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,9 +52,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navabr />
-        <main>{children}</main>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navabr />
+          <main>{children}</main>
+          <Toaster />
+        </ThemeProvider>
         <SpeedInsights />
       </body>
     </html>

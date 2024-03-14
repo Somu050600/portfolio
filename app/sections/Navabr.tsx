@@ -23,6 +23,7 @@ import Image from "next/image";
 import GithubIcon from "./../assests/github.svg";
 import LinkedinIcon from "./../assests/linkedin.svg";
 import TwitterIcon from "./../assests/twitter.svg";
+import { ModeToggle } from "@/components/theme-selector";
 
 const NavItems: { name: string; href: string; link?: boolean }[] = [
   {
@@ -53,6 +54,7 @@ const Navabr = () => {
         <AvatarDemo />
       </Link>
       <nav className="ml-auto flex items-center space-x-6">
+        <ModeToggle />
         {width >= 768 ? (
           <>
             {NavItems.map((item) => {
@@ -92,7 +94,7 @@ const Navabr = () => {
                         key={item.name}
                         data-aos="fade-up"
                         data-aos-delay={150 + index * 50}
-                        className="w-full text-center p-2 border-b-[1px]"
+                        className="w-full text-center p-2 border-b-[1px] text-base"
                       >
                         <Link
                           href={item.href}
@@ -113,26 +115,35 @@ const Navabr = () => {
               </SheetHeader>
               <SheetFooter className="flex flex-row mt-auto w-full justify-center items-center space-x-2">
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
                   href="https://github.com/Somu050600"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-aos="fade-left"
+                  data-aos-offset="0"
+                  data-aos-delay="350"
                 >
                   <Image src={GithubIcon} alt="Github" width={20} />
                 </Link>
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
                   href="https://www.linkedin.com/in/somueega"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-aos="fade-left"
+                  data-aos-offset="0"
+                  data-aos-delay="400"
                 >
                   <Image src={LinkedinIcon} alt="Li" width={20} />
                 </Link>
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
                   href="https://twitter.com/ESomu1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-aos="fade-left"
+                  data-aos-offset="0"
+                  data-aos-delay="450"
                 >
                   <Image src={TwitterIcon} alt="Twitter" width={20} />
                 </Link>
