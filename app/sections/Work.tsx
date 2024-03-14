@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { ChevronRightIcon } from "./utils";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,

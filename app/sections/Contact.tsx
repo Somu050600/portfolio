@@ -12,7 +12,6 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import { AvatarDemo } from "./Navabr";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import GithubIcon from "./../assests/github.svg";
 import LinkedinIcon from "./../assests/linkedin.svg";
 import TwitterIcon from "./../assests/twitter.svg";

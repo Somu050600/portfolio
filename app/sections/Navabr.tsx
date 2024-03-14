@@ -1,21 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "../../components/ui/avatar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { useDeviceSize } from "./hooks";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { AlignRight, ArrowRight } from "lucide-react";
+import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
-
-import MenuIcon from "../assests/bars-solid.svg";
+import GithubIcon from "./../assests/github.svg";
+import LinkedinIcon from "./../assests/linkedin.svg";
+import TwitterIcon from "./../assests/twitter.svg";
 
 const NavItems: { name: string; href: string; link?: boolean }[] = [
   {
@@ -70,36 +77,68 @@ const Navabr = () => {
             })}
           </>
         ) : (
-          <Popover>
-            <PopoverTrigger asChild>
-              <Image src={MenuIcon} alt="Menu" width={25} />
-            </PopoverTrigger>
-            <PopoverContent className="flex flex-col mr-7">
-              {NavItems.map((item) => {
-                return (
-                  <div key={item.name} className="w-full text-center py-1">
-                    {item.link ? (
-                      <Link
-                        // className=" w-full text-right"
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+          <Sheet>
+            <SheetTrigger asChild>
+              <AlignRight size={28} />
+            </SheetTrigger>
+            <SheetContent className="w-[200px] sm:w-[540px] flex flex-col rounded-l-xl ">
+              <SheetHeader>
+                <SheetTitle className="h-4"></SheetTitle>
+                <SheetDescription>
+                  {NavItems.map((item, index) => {
+                    return (
+                      <Dialog.Close
+                        asChild
+                        key={item.name}
+                        data-aos="fade-up"
+                        data-aos-delay={150 + index * 50}
+                        className="w-full text-center p-2 border-b-[1px]"
                       >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <Link
-                        className=" w-full text-right border-b-2"
-                        href={item.href}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </div>
-                );
-              })}
-            </PopoverContent>
-          </Popover>
+                        <Link
+                          href={item.href}
+                          target={item.link ? "_blank" : ""}
+                          rel={item.link ? "noopener noreferrer" : ""}
+                        >
+                          {item.name}{" "}
+                          {item.link ? (
+                            <ArrowRight className="inline p-0" size={16} />
+                          ) : (
+                            ""
+                          )}
+                        </Link>
+                      </Dialog.Close>
+                    );
+                  })}
+                </SheetDescription>
+              </SheetHeader>
+              <SheetFooter className="flex flex-row mt-auto w-full justify-center items-center space-x-2">
+                <Link
+                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  href="https://github.com/Somu050600"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={GithubIcon} alt="Github" width={20} />
+                </Link>
+                <Link
+                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  href="https://www.linkedin.com/in/somueega"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={LinkedinIcon} alt="Li" width={20} />
+                </Link>
+                <Link
+                  className="rounded-full p-1 bg-gray-100 dark:bg-gray-800"
+                  href="https://twitter.com/ESomu1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={TwitterIcon} alt="Twitter" width={20} />
+                </Link>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
         )}
       </nav>
     </header>
