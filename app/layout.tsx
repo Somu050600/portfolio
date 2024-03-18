@@ -59,10 +59,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navabr />
+          <SpeedInsights />
           <main>{children}</main>
           <Toaster />
         </ThemeProvider>
-        <SpeedInsights />
       </body>
     </html>
   );
