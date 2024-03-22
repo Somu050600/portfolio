@@ -79,7 +79,7 @@ const Projects = () => {
               >
                 <Image
                   unoptimized
-                  alt="Experience 1"
+                  alt={`Project ${index + 1}`}
                   className="img_skeleton object-cover transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
                   height="400"
                   src={"https://d3m0gx63bo3yvr.cloudfront.net/" + item.img_url}

@@ -9,6 +9,7 @@ import Work from "./sections/Work";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
@@ -23,6 +24,19 @@ export default function Home() {
       <Work />
       <Skills />
       <Contact />
+      <span
+        className="mb-2"
+        data-aos="fade-up"
+        data-aos-offset="0"
+        data-aos-delay="200"
+      >
+        Crafted with <span style={{ color: "#e25555" }}>&#9829;</span> in India
+        by{" "}
+        <Link href="https://github.com/Somu050600" target="_blank">
+          <strong>Somu</strong>
+        </Link>{" "}
+        using Next.js
+      </span>
     </main>
   );
 }
