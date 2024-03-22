@@ -29,7 +29,22 @@
   },
   {
     "id": 3,
-    "project_title": "The VeganHof ",
+    "project_title": "Portfolio - Next.Js ",
+    "brief_desc": "You are currently looking at it!",
+    "start_date": "Mar 2024",
+    "skills": ["TypeScript", "Next.Js", "AWS", "CloudFront"],
+    "img_url": "og_Somu%20_%20portfolio.png",
+    "project_url": "https://github.com/Somu050600/portfolio",
+    "description": [
+      "Developed and launched a professional portfolio website using TypeScript Next.js, harnessing its efficient server-side rendering capabilities to enhance performance and user experience.",
+      "Implemented AWS S3 for hosting images, leveraging its scalability and durability to ensure seamless content delivery while maintaining low latency.",
+      "Integrated Amazon CloudFront to optimize content delivery, utilizing its global network of edge locations to deliver images and assets to users with improved speed and reduced latency.",
+      "Employed best practices in web development and cloud architecture to create a high-performing and visually appealing portfolio platform, demonstrating proficiency in both frontend development and cloud infrastructure management."
+    ]
+  },
+  {
+    "id": 4,
+    "project_title": "The VeganHof - Frontend",
     "brief_desc": "Delight your palate while nurturing the planet – VeganHof",
     "start_date": "May 2023",
     "skills": ["React", "OAuth", "JWT", "Django"],
@@ -40,6 +55,21 @@
       "Developed a secure authentication system utilizing JWT tokens to ensure access to the home page is restricted to authorized users only. Coockies management allows users to remain logged in even after restarting the window.",
       "Integrated Google OAuth login feature, enhancing user experience by providing a convenient login process.",
       "Leveraged RESTful APIs to perform CRUD (create, read, update, delete) operations for efficient data handling."
+    ]
+  },
+  {
+    "id": 5,
+    "project_title": "Forex Exchange App - Frontend",
+    "brief_desc": "A forex exchange app that can converts currencies and shows exchange rates using Public APIs",
+    "start_date": "Sept 2023",
+    "skills": ["React", "Tailwind CSS", "Public API's"],
+    "img_url": "Forex_exchange_app.png",
+    "project_url": "https://github.com/Somu050600/forex-exchange-app",
+    "description": [
+      "Developed a responsive frontend application using React.js and Tailwind CSS, providing an intuitive user interface for currency conversion and exchange rate display.",
+      "Integrated Public APIs to fetch real-time currency exchange rates, ensuring accurate and up-to-date information for users.",
+      "Implemented interactive features allowing users to seamlessly convert currencies with dynamic exchange rate updates, enhancing user engagement and usability.",
+      "Leveraged Tailwind CSS utility-first approach to streamline styling and ensure consistent design across the application, resulting in a modern and visually appealing user interface."
     ]
   }
 ]

@@ -66,13 +66,13 @@ const Work = () => {
               >
                 <Image
                   alt={`Experience ${index + 1}`}
-                  className="img_skeleton object-cover transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
+                  className="img_skeleton object-cover object-top transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
                   height="400"
                   src={"https://d3m0gx63bo3yvr.cloudfront.net/" + item.img_url}
                   width="600"
                 />
                 <div className="p-6 ">
-                  <h3 className="text-xl font-bold leading-none">
+                  <h3 className="text-xl font-bold leading-none mb-1">
                     {item.job_title}
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
