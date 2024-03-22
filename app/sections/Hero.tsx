@@ -13,6 +13,7 @@ const Hero = () => {
         <div className="space-y-4 z-10">
           <h1
             data-aos="fade-up"
+            data-aos-delay="0"
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
           >
             Hi, I’m Somu

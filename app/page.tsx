@@ -25,12 +25,13 @@ export default function Home() {
       <Skills />
       <Contact />
       <span
-        className="mb-2"
+        className="m-3"
         data-aos="fade-up"
         data-aos-offset="0"
         data-aos-delay="200"
+        style={{ textAlign: "center" }}
       >
-        Crafted with <span style={{ color: "#e25555" }}>&#9829;</span> in India
+        Crafted with <span style={{ color: "#e25555" }}> &#9829; </span>
         by{" "}
         <Link href="https://github.com/Somu050600" target="_blank">
           <strong>Somu</strong>

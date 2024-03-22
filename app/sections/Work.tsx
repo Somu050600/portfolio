@@ -91,26 +91,24 @@ const Work = () => {
                         <DrawerTitle className=" text-xl">
                           {item.job_title} at {item.company_title}
                         </DrawerTitle>
-                        <span className="pb-6">{item.company_name}</span>
+                        <span className="">{item.company_name}</span>
+                        <time className="mx-4 pb-6 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                          {item.start_date} - {item.end_date}
+                        </time>
                         <div className="p-3">
                           {item.skills.map((skill) => (
-                            <Badge key={skill} className="mr-3">
+                            <Badge key={skill} className="mr-2 mt-2">
                               {skill}
                             </Badge>
                           ))}
                         </div>
-                        <DrawerDescription>
-                          <ol className="relative border-s border-gray-200 dark:border-gray-700 max-h-[50vh] md:max-h-[80vh] overflow-y-scroll scrollbar-hide">
+                        <DrawerDescription className="border p-2 max-h-[40vh] md:max-h-[80vh] rounded-xl overflow-y-scroll scrollbar-hide">
+                          <ol className="relative border-s border-gray-200 dark:border-gray-700   ">
                             {item.description.map((point, index) => {
                               return (
                                 <li className="mb-5 ms-4" key={index}>
                                   <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                                  {index === 0 && (
-                                    <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                                      {item.start_date} - {item.end_date}
-                                    </time>
-                                  )}
-                                  <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                                  <p className="text-base font-normal text-gray-500 dark:text-gray-400 text-left">
                                     {point}
                                   </p>
                                 </li>
