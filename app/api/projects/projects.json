@@ -22,9 +22,10 @@
     "img_url": "wallet_app.webp",
     "project_url": "https://github.com/Somu050600/wallet-app",
     "description": [
-      "Developed a Wallet app using React Native and React Native Paper, with a focus on building a secure wallet that can hold cerdit/debit cards locally.",
-      "Developed and implemented templates along with a comprehensive suite of RESTful APIs to effectively present the requested data in an organized manner.",
-      "Manual Testing of API in Postman to verify the API calls and also conducted unittest to ensure the system was free from errors and could handle high volumes of user requests."
+      "Created a secure Wallet application using React Native and React Native Paper for theming, prioritizing the storage of sensitive financial information such as credit/debit cards, bank details, and vouchers locally on the device.",
+      "Implemented React Native Paper for theming, ensuring a consistent and visually appealing user interface across the application while adhering to Material Design principles for intuitive navigation and interaction.",
+      "Utilized Lottie animations to enhance the UI/UX, incorporating dynamic animations throughout the application to provide users with engaging and interactive experiences, from animated splash screens to interactive transitions.",
+      "Focused on security measures to safeguard user data, implementing encryption techniques and secure storage mechanisms to protect sensitive information stored within the wallet, thereby ensuring the confidentiality and integrity of user data."
     ]
   },
   {
