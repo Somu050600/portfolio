@@ -1,5 +1,22 @@
 [
   {
+    "id": 0,
+    "job_title": "Front-End Developer",
+    "company_title": "CloudSEK",
+    "company_name": "CloudSEK Info Security Pvt. Ltd",
+    "location": "Banglore",
+    "start_date": "April 2024",
+    "end_date": "Present",
+    "skills": ["TypeScript", "NextJs", "ReactJs"],
+    "img_url": "cloudsek_landing_page.png",
+    "description": [
+      "Developed performant React components, including admin dashboards, utilizing Next.js, and React Query.",
+      "Enhanced web applications using Next.js for dynamic routing, SSR, and optimized static site generation.",
+      "Enhanced data visualization components, performing critical bug fixes and optimizations for high-impact products like, XVigil, BeVigil, SVigil and Nexus, ensuring robust functionality and user satisfaction.",
+      "Collaborated on the Exposure Search App, achieving over 100,000 searches and generating 3,000 new leads."
+    ]
+  },
+  {
     "id": 1,
     "job_title": "Front-End Developer",
     "company_title": "MatBook",
