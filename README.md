@@ -30,4 +30,4 @@ To run the project locally, use the following command:
 
 ## Contact
 
-For any inquiries or feedback, please contact me at [somasekhareega@gmail.com](mailto:somasekhareega@gmail.com).
+For any inquiries or feedback, please contact me [here](https://somu.vercel.app/#contact).

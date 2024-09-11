@@ -1,16 +1,17 @@
-[
-  {
+[ {
     "id": 1,
-    "project_title": "Listed Dashboard - Frontend",
-    "brief_desc": "Crafting React Magic: API whispers data, app dances with charts. One page, boundless insights.",
-    "start_date": "Feb. 2023",
-    "skills": ["React", "OAuth", "Chart.js"],
-    "img_url": "Listed_board.webp",
-    "project_url": "https://github.com/Somu050600/listed-assignment",
+    "project_title": "Portfolio - Next.Js ",
+    "brief_desc": "You are currently looking at it!",
+    "start_date": "Mar 2024",
+    "skills": ["TypeScript", "Next.Js", "AWS", "CloudFront"],
+    "img_url": "og_Somu%20_%20portfolio.png",
+    "project_url": "https://github.com/Somu050600/portfolio",
+    "project_website": "https://somu.vercel.app",
     "description": [
-      "Developed a front-end web application using with Public APIs serving a APIs with React as the frontend.",
-      "Utilized Axios for data retrieval from APIs and integrated Chart.Js to create effective data visualizations.",
-      "Ensured mobile responsiveness through the application of responsive design principles and CSS media queries, adapting the single-page application’s layout and components to offer an optimal user experience on various devices with different screen sizes and orientations."
+      "Developed and launched a professional portfolio website using TypeScript Next.js, harnessing its efficient server-side rendering capabilities to enhance performance and user experience.",
+      "Implemented AWS S3 for hosting images, leveraging its scalability and durability to ensure seamless content delivery while maintaining low latency.",
+      "Integrated Amazon CloudFront to optimize content delivery, utilizing its global network of edge locations to deliver images and assets to users with improved speed and reduced latency.",
+      "Employed best practices in web development and cloud architecture to create a high-performing and visually appealing portfolio platform, demonstrating proficiency in both frontend development and cloud infrastructure management."
     ]
   },
   {
@@ -30,17 +31,17 @@
   },
   {
     "id": 3,
-    "project_title": "Portfolio - Next.Js ",
-    "brief_desc": "You are currently looking at it!",
-    "start_date": "Mar 2024",
-    "skills": ["TypeScript", "Next.Js", "AWS", "CloudFront"],
-    "img_url": "og_Somu%20_%20portfolio.png",
-    "project_url": "https://github.com/Somu050600/portfolio",
+    "project_title": "Listed Dashboard - Frontend",
+    "brief_desc": "Crafting React Magic: API whispers data, app dances with charts. One page, boundless insights.",
+    "start_date": "Feb. 2023",
+    "skills": ["React", "OAuth", "Chart.js"],
+    "img_url": "Listed_board.webp",
+    "project_url": "https://github.com/Somu050600/listed-assignment",
+    "project_website": "https://listed-board.netlify.app/",
     "description": [
-      "Developed and launched a professional portfolio website using TypeScript Next.js, harnessing its efficient server-side rendering capabilities to enhance performance and user experience.",
-      "Implemented AWS S3 for hosting images, leveraging its scalability and durability to ensure seamless content delivery while maintaining low latency.",
-      "Integrated Amazon CloudFront to optimize content delivery, utilizing its global network of edge locations to deliver images and assets to users with improved speed and reduced latency.",
-      "Employed best practices in web development and cloud architecture to create a high-performing and visually appealing portfolio platform, demonstrating proficiency in both frontend development and cloud infrastructure management."
+      "Developed a front-end web application using with Public APIs serving a APIs with React as the frontend.",
+      "Utilized Axios for data retrieval from APIs and integrated Chart.Js to create effective data visualizations.",
+      "Ensured mobile responsiveness through the application of responsive design principles and CSS media queries, adapting the single-page application’s layout and components to offer an optimal user experience on various devices with different screen sizes and orientations."
     ]
   },
   {
@@ -51,6 +52,7 @@
     "skills": ["React", "OAuth", "JWT", "Django"],
     "img_url": "The_VeganHof.jpeg",
     "project_url": "https://github.com/Somu050600/the-vegan-hof",
+    "project_website": "https://the-vegan-hof.netlify.app/",
     "description": [
       "",
       "Developed a secure authentication system utilizing JWT tokens to ensure access to the home page is restricted to authorized users only. Coockies management allows users to remain logged in even after restarting the window.",
@@ -66,6 +68,7 @@
     "skills": ["React", "Tailwind CSS", "Public API's"],
     "img_url": "Forex_exchange_app.png",
     "project_url": "https://github.com/Somu050600/forex-exchange-app",
+    "project_website": "https://forex-exchange-app.netlify.app/",
     "description": [
       "Developed a responsive frontend application using React.js and Tailwind CSS, providing an intuitive user interface for currency conversion and exchange rate display.",
       "Integrated Public APIs to fetch real-time currency exchange rates, ensuring accurate and up-to-date information for users.",

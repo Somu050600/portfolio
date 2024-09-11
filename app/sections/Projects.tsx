@@ -24,6 +24,7 @@ export interface ProjectsModel {
   skills: string[];
   img_url: string;
   project_url: string;
+  project_website?: string
   description: string[];
 }
 
@@ -131,12 +132,22 @@ const Projects = () => {
                         </DrawerDescription>
                       </DrawerHeader>
                       <DrawerFooter className="w-full md:w-[60vw]">
-                        <Link
-                          href={item.project_url}
-                          className="self-center py-2"
-                        >
-                          View Project -{">"}
-                        </Link>
+                        <div className="flex flex-row items-center justify-center w-full gap-x-10">
+                          <Link
+                            href={item.project_url}
+                            target="_blanck"
+                            className="self-center py-2"
+                          >
+                            Project -{">"}
+                          </Link>
+                          {item?.project_website && <Link
+                            href={item.project_website}
+                            target="_blanck"
+                            className="self-center py-2"
+                          >
+                            Website -{">"}
+                          </Link>}
+                        </div>
                         <DrawerClose>
                           <Button variant="default" className="w-64">
                             Close
