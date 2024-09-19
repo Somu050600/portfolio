@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -14,6 +14,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Badge } from "@/components/ui/badge";
+import { useTheme } from "next-themes";
 
 export interface WorkExperienceModel {
   id: Number;
@@ -30,6 +31,8 @@ export interface WorkExperienceModel {
 
 const Work = () => {
   const [data, setData] = useState<WorkExperienceModel[]>();
+  const cardsRef = useRef<HTMLDivElement | null>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +42,40 @@ const Work = () => {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!cardsRef.current) return;
+
+      const cards = cardsRef.current.getElementsByClassName("card");
+
+      for (const card of Array.from(cards)) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        (card as HTMLElement).style.setProperty("--mouse-x", `${x}px`);
+        (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
+        (card as HTMLElement).style.setProperty(
+          "--bg",
+          theme === "light" ? "rgb(255, 255, 255, 0.95)" : "rgb(0, 0, 0, 0.95)"
+        );
+        (card as HTMLElement).style.setProperty("--bg-hover", "#0050e6");
+      }
+    };
+
+    const cardsContainer = cardsRef.current;
+    if (cardsContainer) {
+      cardsContainer.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      // Cleanup event listener when component is unmounted
+      if (cardsContainer) {
+        cardsContainer.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, [theme]);
 
   return (
     <div id="work" className="w-full py-12 md:py-12 lg:py-12">
@@ -54,7 +91,10 @@ const Work = () => {
             Details about my work experience.
           </p>
         </div>
-        <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+        <div
+          ref={cardsRef}
+          className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
+        >
           {data?.map((item, index) => {
             return (
               <div
@@ -62,16 +102,16 @@ const Work = () => {
                 data-aos="fade-up"
                 data-aos-offset="100"
                 data-aos-duration={300 + index * 100}
-                className="flex flex-col group overflow-hidden rounded-xl shadow-lg border"
+                className=" w-full flex flex-col p-4 group overflow-hidden rounded-xl shadow-lg border card"
               >
                 <Image
                   alt={`Experience ${index + 1}`}
-                  className="img_skeleton object-cover object-top transition-transform group-hover:scale-105 aspect-[3/2] bg-gray-250"
+                  className="img_skeleton object-cover object-top aspect-[3/2] bg-gray-250 rounded-lg"
                   height="400"
                   src={"https://d3m0gx63bo3yvr.cloudfront.net/" + item.img_url}
                   width="600"
                 />
-                <div className="p-6 ">
+                <div className="py-6 pb-3">
                   <h3 className="text-xl font-bold leading-none mb-1">
                     {item.job_title}
                   </h3>
@@ -79,7 +119,7 @@ const Work = () => {
                     {item.company_name}
                   </p>
                 </div>
-                <div className="w-full py-3 px-6 mt-auto self-baseline flex justify-between items-end">
+                <div className="w-full pt-3 mt-auto self-baseline flex justify-between items-end">
                   <Drawer>
                     <DrawerTrigger>
                       <Button variant={"link"} className="p-0">

@@ -103,3 +103,40 @@ html {
     -ms-overflow-style: none !important; /* IE and Edge */
   }
 }
+
+.card {
+  position: relative;
+}
+
+/* Pseudo-elements for all screen sizes */
+.card::after,
+.card::before {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out; /* Apply transition globally */
+}
+
+/* Hover effects only for larger screens */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover::before,
+  .card:hover::after {
+    opacity: 1;
+  }
+
+  .card::before {
+    top: var(--mouse-y);
+    left: var(--mouse-x);
+    width: 200%;
+    height: 200%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(var(--bg-hover), transparent, transparent);
+  }
+
+  .card::after {
+    inset: 2px;
+    background: var(--bg);
+    border-radius: calc(0.75rem - 2px);
+  }
+}

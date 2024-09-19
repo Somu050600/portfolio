@@ -145,7 +145,7 @@ const Skills = () => {
         logo: <IslandIcon />,
       },
     ],
-    []
+    [theme]
   );
 
   return (
@@ -169,6 +169,7 @@ const Skills = () => {
               data-aos="fade-up"
               data-aos-offset="50"
               data-aos-duration={300 + index * 50}
+              data-aos-delay={index * 50}
               className="flex items-center space-x-4"
             >
               {sk?.logo ? (
