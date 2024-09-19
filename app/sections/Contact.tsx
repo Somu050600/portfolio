@@ -15,6 +15,7 @@ import { AvatarDemo } from "./Navabr";
 import GithubIcon from "./../assests/github.svg";
 import LinkedinIcon from "./../assests/linkedin.svg";
 import TwitterIcon from "./../assests/twitter.svg";
+import MapComponent from "./Map";
 
 export interface FormData {
   name: string;
@@ -96,6 +97,9 @@ export default function Contact() {
           >
             Send me a message or connect with me on social media.
           </p>
+        </div>
+        <div className=" overflow-hidden border rounded-lg">
+          <MapComponent />
         </div>
         <div className="w-full flex flex-col md:grid grid-cols-7 place-items-center gap-1 mt-12">
           <div
