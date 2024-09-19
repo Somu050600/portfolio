@@ -4,8 +4,7 @@ import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
 // Initialize the Mapbox component with your access token
 const Map = ReactMapboxGl({
-  accessToken:
-    "pk.eyJ1Ijoic29tdWVlZ2EiLCJhIjoiY20xOHg4NjN3MDFheTJpczlzcHl6Y2N6diJ9.4wAqO96eOLpCb_Fzx_Znbg", // Replace with your Mapbox access token
+  accessToken: process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN ?? "", // Replace with your Mapbox access token
 });
 
 const MapComponent = () => {
