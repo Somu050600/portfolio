@@ -1,4 +1,5 @@
-[ {
+[
+  {
     "id": 1,
     "project_title": "Portfolio - Next.Js ",
     "brief_desc": "You are currently looking at it!",
@@ -31,6 +32,22 @@
   },
   {
     "id": 3,
+    "project_title": "Node Bites - React Flow",
+    "brief_desc": "Intuitive and engaging node base Food explorer app.",
+    "start_date": "Sept 2024",
+    "skills": ["React", "React Flow", "Tailwind", "TypeScript"],
+    "img_url": "node-bites-social-media-preview-img.png",
+    "project_url": "https://github.com/Somu050600/node-bites",
+    "project_website": "https://node-bites.vercel.app",
+    "description": [
+      "Built an interactive meal exploration app using React, allowing users to navigate through meal categories with a dynamic node graph.",
+      "Implemented a visual node graph with React Flow to represent meal categories and meals, enhancing user engagement.",
+      "Optimized user experience with loading indicators during data fetching, ensuring smooth transitions.",
+      "Utilized TypeScript for type safety, Context API for state management, and Tailwind CSS for responsive UI styling."
+    ]
+  },
+  {
+    "id": 4,
     "project_title": "Listed Dashboard - Frontend",
     "brief_desc": "Crafting React Magic: API whispers data, app dances with charts. One page, boundless insights.",
     "start_date": "Feb. 2023",
@@ -45,7 +62,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "project_title": "The VeganHof - Frontend",
     "brief_desc": "Delight your palate while nurturing the planet – VeganHof",
     "start_date": "May 2023",
@@ -61,7 +78,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "project_title": "Forex Exchange App - Frontend",
     "brief_desc": "A forex exchange app that can converts currencies and shows exchange rates using Public APIs",
     "start_date": "Sept 2023",

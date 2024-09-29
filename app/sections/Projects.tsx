@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useTheme } from "next-themes";
+import { LinkForwardIcon } from "hugeicons-react";
 
 export interface ProjectsModel {
   id: Number;
@@ -134,7 +135,7 @@ const Projects = () => {
                     {item.brief_desc}
                   </p>
                 </div>
-                <div className="w-full pt-3 mt-auto self-baseline flex justify-between items-end">
+                <div className="w-full pt-3 mt-auto self-baseline flex flex-row justify-between items-center gap-2">
                   <Drawer>
                     <DrawerTrigger>
                       <Button variant={"link"} className="p-0">
@@ -198,6 +199,15 @@ const Projects = () => {
                       </DrawerFooter>
                     </DrawerContent>
                   </Drawer>
+                  {item?.project_website && (
+                    <Link
+                      href={item.project_website}
+                      target="_blanck"
+                      className="self-center py-2"
+                    >
+                      <LinkForwardIcon />
+                    </Link>
+                  )}
                 </div>
               </div>
             );
