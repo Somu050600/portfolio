@@ -15,14 +15,22 @@ import useThemeDetector from "./hooks/useThemeDetector";
 
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
-
   const isDarkMode = useThemeDetector();
+  const [mounted, setMounted] = React.useState(false);
 
-  // Sync app theme with system theme
+  // Ensures component only runs on the client
   React.useEffect(() => {
-    setTheme(isDarkMode ? "dark" : "light");
-  }, [isDarkMode, setTheme]);
+    setMounted(true);
+  }, []);
 
+  // Sync theme with system preference
+  React.useEffect(() => {
+    if (mounted) {
+      setTheme(isDarkMode ? "dark" : "light");
+    }
+  }, [isDarkMode, mounted, setTheme]);
+
+  if (!mounted) return null; // Prevents hydration mismatch
 
   return (
     <DropdownMenu>
