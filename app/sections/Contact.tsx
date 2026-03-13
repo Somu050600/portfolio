@@ -1,21 +1,21 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useForm } from "react-hook-form";
-import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
-import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import Link from "next/link";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import Image from "next/image";
-import { AvatarDemo } from "./Navabr";
+import Link from "next/link";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import GithubIcon from "./../assests/github.svg";
 import LinkedinIcon from "./../assests/linkedin.svg";
 import TwitterIcon from "./../assests/twitter.svg";
 import MapComponent from "./Map";
+import { AvatarDemo } from "./Navabr";
 
 export interface FormData {
   name: string;
@@ -108,7 +108,7 @@ export default function Contact() {
             className="mx-auto md:ml-0 max-w-full self-start items-stretch col-span-3 space-y-6"
           >
             <Card className="w-full border-none">
-              <CardContent className="flex flex-col items-center space-y-2">
+              <CardContent className="flex flex-col items-center space-y-2 pt-4">
                 <AvatarDemo />
                 <div className="text-center space-y-1">
                   <h2 className="text-lg font-semibold">

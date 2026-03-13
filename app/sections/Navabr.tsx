@@ -27,6 +27,10 @@ import { ModeToggle } from "@/components/theme-selector";
 
 const NavItems: { name: string; href: string; link?: boolean }[] = [
   {
+    name: "Playground",
+    href: "/playground",
+  },
+  {
     name: "Work",
     href: "#work",
   },
