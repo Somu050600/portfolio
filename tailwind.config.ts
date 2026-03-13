@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 
 const svgToDataUri = require("mini-svg-data-uri");
 
-const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
@@ -13,6 +12,7 @@ const config = {
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
+    "./lib/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
@@ -26,44 +26,91 @@ const config = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: {
+          DEFAULT: "var(--color-background-base)",
+          subtle: "var(--color-background-subtle)",
+          muted: "var(--color-background-muted)",
+        },
+        foreground: {
+          DEFAULT: "var(--color-foreground-base)",
+          subtle: "var(--color-foreground-subtle)",
+          muted: "var(--color-foreground-muted)",
+        },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--color-primary-base)",
+          hover: "var(--color-primary-hover)",
+          active: "var(--color-primary-active)",
+          foreground: "var(--color-primary-foreground)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "var(--color-secondary-base)",
+          hover: "var(--color-secondary-hover)",
+          active: "var(--color-secondary-active)",
+          foreground: "var(--color-secondary-foreground)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "var(--color-accent-base)",
+          hover: "var(--color-accent-hover)",
+          active: "var(--color-accent-active)",
+          foreground: "var(--color-accent-foreground)",
+        },
+        destructive: {
+          DEFAULT: "var(--color-destructive-base)",
+          foreground: "var(--color-destructive-foreground)",
+        },
+        border: {
+          DEFAULT: "var(--color-border-base)",
+          subtle: "var(--color-border-subtle)",
+          strong: "var(--color-border-strong)",
+          glass: "var(--color-border-glass)",
+        },
+        surface: {
+          DEFAULT: "var(--color-surface-base)",
+          raised: "var(--color-surface-raised)",
+          overlay: "var(--color-surface-overlay)",
+          inset: "var(--color-surface-inset)",
+          glass: "var(--color-surface-glass)",
+        },
+        ring: "var(--color-ring)",
+        input: "var(--color-border-base)",
+        muted: {
+          DEFAULT: "var(--color-background-muted)",
+          foreground: "var(--color-foreground-muted)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--color-surface-raised)",
+          foreground: "var(--color-foreground-base)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--color-surface-base)",
+          foreground: "var(--color-foreground-base)",
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        none: "var(--radius-none)",
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+        "2xl": "var(--radius-2xl)",
+        full: "var(--radius-full)",
+      },
+      boxShadow: {
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+        xl: "var(--shadow-xl)",
+        "2xl": "var(--shadow-2xl)",
+        inner: "var(--shadow-inner)",
+        glow: "var(--glow-primary)",
+      },
+      fontFamily: {
+        heading: "var(--font-family-heading)",
+        body: "var(--font-family-body)",
+        mono: "var(--font-family-mono)",
+      },
+      backdropBlur: {
+        theme: "var(--backdrop-blur)",
       },
       keyframes: {
         "accordion-down": {
@@ -83,8 +130,6 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-
-    addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {
@@ -111,14 +156,3 @@ const config = {
 } satisfies Config;
 
 export default config;
-
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({
-    ":root": newVars,
-  });
-}

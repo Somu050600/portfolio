@@ -2,67 +2,146 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme variables (default: monochrome light). Phase 3 ThemeProvider will override at runtime. */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Colors */
+    --color-background-base: #ffffff;
+    --color-background-subtle: #fafafa;
+    --color-background-muted: #f5f5f5;
+    --color-foreground-base: #0a0a0a;
+    --color-foreground-subtle: #737373;
+    --color-foreground-muted: #a3a3a3;
+    --color-primary-base: #0a0a0a;
+    --color-primary-hover: #262626;
+    --color-primary-active: #404040;
+    --color-primary-foreground: #fafafa;
+    --color-secondary-base: #f5f5f5;
+    --color-secondary-hover: #e5e5e5;
+    --color-secondary-active: #d4d4d4;
+    --color-secondary-foreground: #0a0a0a;
+    --color-accent-base: #f5f5f5;
+    --color-accent-hover: #e5e5e5;
+    --color-accent-active: #d4d4d4;
+    --color-accent-foreground: #0a0a0a;
+    --color-destructive-base: #ef4444;
+    --color-destructive-foreground: #ffffff;
+    --color-warning-base: #f59e0b;
+    --color-warning-foreground: #000000;
+    --color-success-base: #22c55e;
+    --color-success-foreground: #ffffff;
+    --color-info-base: #3b82f6;
+    --color-info-foreground: #ffffff;
+    --color-border-base: #e5e5e5;
+    --color-border-subtle: #d4d4d4;
+    --color-border-strong: #a3a3a3;
+    --color-border-glass: rgba(255, 255, 255, 0.5);
+    --color-ring: #0a0a0a;
+    --color-surface-base: #ffffff;
+    --color-surface-raised: #fafafa;
+    --color-surface-overlay: rgba(0, 0, 0, 0.5);
+    --color-surface-inset: #f5f5f5;
+    --color-surface-glass: rgba(255, 255, 255, 0.8);
+    --color-surface-glass-hover: rgba(255, 255, 255, 0.9);
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    /* Typography */
+    --font-family-heading: "Inter", system-ui;
+    --font-family-body: "Inter", system-ui;
+    --font-family-mono: "JetBrains Mono", monospace;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --letter-spacing-tighter: -0.05em;
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0em;
+    --letter-spacing-wide: 0.025em;
+    --letter-spacing-wider: 0.05em;
+    --letter-spacing-widest: 0.1em;
+    --heading-text-transform: none;
+    --heading-default-weight: 700;
+    --heading-default-tracking: 0em;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    /* Borders */
+    --radius-none: 0px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-full: 9999px;
+    --border-width-0: 0px;
+    --border-width-1: 1px;
+    --border-width-2: 2px;
+    --border-width-4: 4px;
+    --border-width-8: 8px;
+    --border-style: solid;
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    /* Shadows */
+    --shadow-none: none;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    --glow-primary: 0 0 0 transparent;
+    --glow-secondary: 0 0 0 transparent;
+    --glow-accent: 0 0 0 transparent;
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    /* Effects */
+    --backdrop-blur: 0px;
+    --backdrop-saturate: 1;
+    --backdrop-brightness: 1;
+    --noise-opacity: 0;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-
-    --radius: 0.5rem;
+    /* Layout */
+    --card-padding: 1.5rem;
+    --container-max-width: 1280px;
+    --gap-sm: 0.5rem;
+    --gap-md: 1rem;
+    --gap-lg: 1.5rem;
   }
 
+  /* Dark mode (next-themes). Phase 3 ThemeProvider will override. */
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --color-background-base: #0a0a0a;
+    --color-background-subtle: #171717;
+    --color-background-muted: #262626;
+    --color-foreground-base: #fafafa;
+    --color-foreground-subtle: #a3a3a3;
+    --color-foreground-muted: #737373;
+    --color-primary-base: #fafafa;
+    --color-primary-hover: #e5e5e5;
+    --color-primary-active: #d4d4d4;
+    --color-primary-foreground: #0a0a0a;
+    --color-secondary-base: #262626;
+    --color-secondary-hover: #404040;
+    --color-secondary-active: #525252;
+    --color-secondary-foreground: #fafafa;
+    --color-accent-base: #262626;
+    --color-accent-hover: #404040;
+    --color-accent-active: #525252;
+    --color-accent-foreground: #fafafa;
+    --color-border-base: #262626;
+    --color-border-subtle: #404040;
+    --color-border-strong: #525252;
+    --color-border-glass: rgba(255, 255, 255, 0.06);
+    --color-ring: #fafafa;
+    --color-surface-base: #171717;
+    --color-surface-raised: #262626;
+    --color-surface-overlay: rgba(0, 0, 0, 0.8);
+    --color-surface-inset: #0a0a0a;
+    --color-surface-glass: rgba(255, 255, 255, 0.03);
+    --color-surface-glass-hover: rgba(255, 255, 255, 0.06);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.3);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.5);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -73,6 +152,14 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Theme utility classes */
+.heading-style {
+  text-transform: var(--heading-text-transform);
+  font-weight: var(--heading-default-weight);
+  letter-spacing: var(--heading-default-tracking);
+  font-family: var(--font-family-heading);
 }
 
 html {
@@ -93,14 +180,13 @@ html {
 }
 
 @media screen and (min-width: 768px) {
-  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  /* Webkit-based browsers */
   .scrollbar-hide::-webkit-scrollbar {
     display: none !important;
   }
-
-  /* For IE, Edge and Firefox */
+  /* IE, Edge, Firefox */
   .scrollbar-hide {
-    -ms-overflow-style: none !important; /* IE and Edge */
+    -ms-overflow-style: none !important;
   }
 }
 
@@ -108,17 +194,15 @@ html {
   position: relative;
 }
 
-/* Pseudo-elements for all screen sizes */
 .card::after,
 .card::before {
   opacity: 0;
   content: "";
   position: absolute;
   z-index: -1;
-  transition: opacity 0.2s ease-in-out; /* Apply transition globally */
+  transition: opacity 0.2s ease-in-out;
 }
 
-/* Hover effects only for larger screens */
 @media (hover: hover) and (pointer: fine) {
   .card:hover::before,
   .card:hover::after {

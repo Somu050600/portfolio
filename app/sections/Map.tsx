@@ -1,4 +1,4 @@
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme";
 import React, { useEffect, useState } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
@@ -8,16 +8,16 @@ const Map = ReactMapboxGl({
 });
 
 const MapComponent = () => {
-  const { theme } = useTheme();
+  const { isDark } = useTheme();
   const [mapStyle, setMapStyle] = useState(
-    `mapbox://styles/mapbox/${theme === "light" ? "streets" : "dark"}-v10`
+    `mapbox://styles/mapbox/${isDark ? "dark" : "streets"}-v10`
   );
 
   useEffect(() => {
     setMapStyle(
-      `mapbox://styles/mapbox/${theme === "light" ? "streets" : "dark"}-v10`
+      `mapbox://styles/mapbox/${isDark ? "dark" : "streets"}-v10`
     );
-  }, [theme]);
+  }, [isDark]);
 
   const bangaloreRegion = [
     [
@@ -31,7 +31,7 @@ const MapComponent = () => {
 
   return (
     <Map
-      key={theme} // This forces a re-render when theme changes
+      key={mapStyle} // This forces a re-render when map style changes
       style={mapStyle} // Set the current map style
       containerStyle={{
         height: "400px",

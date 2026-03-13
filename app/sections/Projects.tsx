@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme";
 import { LinkForwardIcon } from "hugeicons-react";
 
 export interface ProjectsModel {
@@ -33,7 +33,7 @@ export interface ProjectsModel {
 const Projects = () => {
   const [data, setData] = useState<ProjectsModel[]>();
   const cardsRef = useRef<HTMLDivElement | null>(null);
-  const { theme } = useTheme();
+  const { isDark, currentTheme } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,9 +65,12 @@ const Projects = () => {
         (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
         (card as HTMLElement).style.setProperty(
           "--bg",
-          theme === "light" ? "rgb(255, 255, 255, 0.95)" : "rgb(0, 0, 0, 0.95)"
+          isDark ? "rgb(0, 0, 0, 0.95)" : "rgb(255, 255, 255, 0.95)"
         );
-        (card as HTMLElement).style.setProperty("--bg-hover", "#0050e6");
+        (card as HTMLElement).style.setProperty(
+          "--bg-hover",
+          currentTheme.colors.primary.base
+        );
       }
     };
 
@@ -82,7 +85,7 @@ const Projects = () => {
         cardsContainer.removeEventListener("mousemove", handleMouseMove);
       }
     };
-  }, [theme]);
+  }, [isDark, currentTheme.colors.primary.base]);
 
   return (
     <div id="projects" className="w-full py-12 md:py-12 lg:py-12">
@@ -100,7 +103,7 @@ const Projects = () => {
             data-aos="fade-up"
             data-aos-offset="0"
             data-aos-delay="250"
-            className="text-gray-500 dark:text-gray-400"
+            className="text-muted-foreground"
           >
             Sleek and modern.
           </p>
@@ -131,7 +134,7 @@ const Projects = () => {
                   <h3 className="text-xl font-bold leading-none mb-1">
                     {item.project_title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     {item.brief_desc}
                   </p>
                 </div>
@@ -147,7 +150,7 @@ const Projects = () => {
                         <DrawerTitle className=" text-xl">
                           {item.project_title}
                         </DrawerTitle>
-                        <time className="mx-4 pb-6 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        <time className="mx-4 pb-6 text-sm font-normal leading-none text-muted-foreground">
                           {item.start_date}
                         </time>
                         <div className="p-3 ">
@@ -158,12 +161,12 @@ const Projects = () => {
                           ))}
                         </div>
                         <DrawerDescription className="border p-2 max-h-[40vh] md:max-h-[80vh] rounded-xl overflow-y-scroll scrollbar-hide">
-                          <ol className="relative border-s border-gray-200 dark:border-gray-700">
+                          <ol className="relative border-s border-border">
                             {item.description.map((point, index) => {
                               return (
                                 <li className="mb-5 ms-4" key={index}>
-                                  <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                                  <p className="text-base font-normal text-gray-500 dark:text-gray-400 text-left">
+                                  <div className="absolute w-3 h-3 bg-surface rounded-full mt-1.5 -start-1.5 border border-background"></div>
+                                  <p className="text-base font-normal text-muted-foreground text-left">
                                     {point}
                                   </p>
                                 </li>

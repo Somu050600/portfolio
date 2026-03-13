@@ -93,12 +93,12 @@ export default function Contact() {
           <p
             data-aos="fade-up"
             data-aos-delay="50"
-            className="text-gray-500 dark:text-gray-400"
+            className="text-muted-foreground"
           >
             Send me a message or connect with me on social media.
           </p>
         </div>
-        <div className=" overflow-hidden border rounded-lg">
+        <div className="overflow-hidden border border-border rounded-lg">
           <MapComponent />
         </div>
         <div className="w-full flex flex-col md:grid grid-cols-7 place-items-center gap-1 mt-12">
@@ -114,7 +114,7 @@ export default function Contact() {
                   <h2 className="text-lg font-semibold">
                     Eega Somasekhara Reddy
                   </h2>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-muted-foreground">
                     Full-Stack Web Developer
                   </p>
                 </div>
@@ -124,26 +124,26 @@ export default function Contact() {
                   <div className="font-medium">Email</div>
                   <Link
                     href="mailto:somasekhareega@gmail.com"
-                    className="w-full overflow-hidden text-sm text-gray-500 text-ellipsis"
+                    className="w-full overflow-hidden text-sm text-muted-foreground text-ellipsis"
                   >
                     soma*****ega@gmail.com
                   </Link>
                   <div className="font-medium">Phone</div>
                   <Link
                     href="tel:+916303955065"
-                    className="text-sm text-gray-500"
+                    className="text-sm text-muted-foreground"
                   >
                     +916303955065
                   </Link>
                   <div className="font-medium">Location</div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-muted-foreground">
                     Bangalore, Karnataka, IN
                   </div>
                 </dl>
               </CardContent>
               <CardContent className="flex justify-center space-x-4">
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
+                  className="rounded-full p-1 bg-surface"
                   href="https://github.com/Somu050600"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -151,7 +151,7 @@ export default function Contact() {
                   <Image src={GithubIcon} alt="Github" width={30} />
                 </Link>
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
+                  className="rounded-full p-1 bg-surface"
                   href="https://www.linkedin.com/in/somueega"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -159,7 +159,7 @@ export default function Contact() {
                   <Image src={LinkedinIcon} alt="Li" width={30} />
                 </Link>
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
+                  className="rounded-full p-1 bg-surface"
                   href="https://twitter.com/ESomu1"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -170,7 +170,7 @@ export default function Contact() {
               <CardFooter className="flex justify-center">
                 <Link
                   href="mailto:somasekhareega@gmail.com"
-                  className="px-16 py-2 rounded text-white bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-slate-100 dark:text-black"
+                  className="px-16 py-2 rounded bg-primary text-primary-foreground hover:bg-primary-hover"
                 >
                   Hire Me
                 </Link>

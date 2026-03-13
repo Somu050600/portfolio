@@ -13,6 +13,9 @@
 /.next/
 /out/
 
+# generated theme init (created by npm run theme:init)
+/public/theme-init.js
+
 # production
 /build
 

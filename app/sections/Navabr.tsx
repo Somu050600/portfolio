@@ -115,7 +115,7 @@ const Navabr = () => {
               </SheetHeader>
               <SheetFooter className="flex flex-row mt-auto w-full justify-center items-center space-x-2">
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
+                  className="rounded-full p-1 bg-surface"
                   href="https://github.com/Somu050600"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -126,7 +126,7 @@ const Navabr = () => {
                   <Image src={GithubIcon} alt="Github" width={20} />
                 </Link>
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
+                  className="rounded-full p-1 bg-surface"
                   href="https://www.linkedin.com/in/somueega"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -137,7 +137,7 @@ const Navabr = () => {
                   <Image src={LinkedinIcon} alt="Li" width={20} />
                 </Link>
                 <Link
-                  className="rounded-full p-1 bg-gray-100 dark:bg-white"
+                  className="rounded-full p-1 bg-surface"
                   href="https://twitter.com/ESomu1"
                   target="_blank"
                   rel="noopener noreferrer"

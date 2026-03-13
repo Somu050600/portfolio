@@ -15,7 +15,7 @@ import {
   Rhombus01Icon,
   IslandIcon,
 } from "hugeicons-react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme";
 
 export interface SkillsModel {
   skill: string;
@@ -24,7 +24,7 @@ export interface SkillsModel {
 }
 
 const Skills = () => {
-  const { theme } = useTheme();
+  const { isDark } = useTheme();
 
   const skills: SkillsModel[] = useMemo(
     () => [
@@ -62,7 +62,7 @@ const Skills = () => {
             viewBox="0 0 24 24"
             width={24}
             height={24}
-            color={theme === "light" ? "#000000" : "#fff"}
+            color={isDark ? "#fff" : "#000000"}
             fill={"none"}
           >
             <path
@@ -145,7 +145,7 @@ const Skills = () => {
         logo: <IslandIcon />,
       },
     ],
-    [theme]
+    [isDark]
   );
 
   return (
@@ -158,7 +158,7 @@ const Skills = () => {
           >
             My Skills
           </h2>
-          <p data-aos="fade-up" className="text-gray-500 dark:text-gray-400">
+          <p data-aos="fade-up" className="text-muted-foreground">
             I’m skilled in the following technologies.
           </p>
         </div>
@@ -175,7 +175,7 @@ const Skills = () => {
               {sk?.logo ? (
                 sk?.logo
               ) : (
-                <CheckCircleIcon className="w-4 h-4 text-gray-500 peer group-hover:text-gray-500 dark:text-gray-400 group-hover:dark:text-gray-400" />
+                <CheckCircleIcon className="w-4 h-4 text-muted-foreground" />
               )}
               <Link
                 href={sk.link}
