@@ -1,5 +1,6 @@
 import type { ThemeSpec } from "../schema/theme-spec";
 import {
+  baseLayoutGaps,
   baseSpacingValues,
   baseTypography,
   baseTransitions,
@@ -85,7 +86,7 @@ export const cleanLogistics: ThemeSpec = {
     },
   },
   spacing: {
-    density: 1.0,
+    density: 1.05,
     values: { ...baseSpacingValues },
   },
   borders: {
@@ -132,7 +133,7 @@ export const cleanLogistics: ThemeSpec = {
   layout: {
     density: "comfortable",
     cardPadding: "1.5rem",
-    gap: { sm: "0.5rem", md: "1rem", lg: "1.5rem" },
+    gap: baseLayoutGaps.comfortable,
     containerMaxWidth: "1280px",
   },
 };

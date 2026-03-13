@@ -1,5 +1,6 @@
 import type { ThemeSpec } from "../schema/theme-spec";
 import {
+  baseLayoutGaps,
   baseSpacingValues,
   baseTypography,
   baseTransitions,
@@ -8,13 +9,12 @@ import {
 
 /** Light monochrome (existing B&W light) */
 export const monochromeLight: ThemeSpec = {
-  meta: createMeta(
+  meta: createMeta("monochrome", "Monochrome", "monochrome", false, [
+    "light",
     "monochrome",
-    "Monochrome",
-    "monochrome",
-    false,
-    ["light", "monochrome", "minimal", "bw"]
-  ),
+    "minimal",
+    "bw",
+  ]),
   colors: {
     background: {
       base: "#ffffff",
@@ -133,20 +133,19 @@ export const monochromeLight: ThemeSpec = {
   layout: {
     density: "comfortable",
     cardPadding: "1.5rem",
-    gap: { sm: "0.5rem", md: "1rem", lg: "1.5rem" },
+    gap: baseLayoutGaps.comfortable,
     containerMaxWidth: "1280px",
   },
 };
 
 /** Dark monochrome (existing B&W dark) */
 export const monochromeDark: ThemeSpec = {
-  meta: createMeta(
-    "monochrome-dark",
-    "Monochrome Dark",
+  meta: createMeta("monochrome-dark", "Monochrome Dark", "monochrome", true, [
+    "dark",
     "monochrome",
-    true,
-    ["dark", "monochrome", "minimal", "bw"]
-  ),
+    "minimal",
+    "bw",
+  ]),
   colors: {
     background: {
       base: "#0a0a0a",
@@ -265,7 +264,7 @@ export const monochromeDark: ThemeSpec = {
   layout: {
     density: "comfortable",
     cardPadding: "1.5rem",
-    gap: { sm: "0.5rem", md: "1rem", lg: "1.5rem" },
+    gap: baseLayoutGaps.comfortable,
     containerMaxWidth: "1280px",
   },
 };

@@ -148,6 +148,7 @@ export function resolveThemeToVariables(theme: ThemeSpec): Map<string, string> {
     set(vars, `--border-width-${k}`, v);
   });
   set(vars, "--border-style", borders.style);
+  set(vars, "--border-opacity", String(borders.opacity));
 
   // Shadows
   set(vars, "--shadow-none", shadows.none);
@@ -176,6 +177,17 @@ export function resolveThemeToVariables(theme: ThemeSpec): Map<string, string> {
   set(vars, "--gap-sm", layout.gap.sm);
   set(vars, "--gap-md", layout.gap.md);
   set(vars, "--gap-lg", layout.gap.lg);
+
+  // Spacing scale (theme.spacing.values scaled by density) — used by gap, p, m, etc.
+  const density = spacing.density;
+  const scaleRem = (v: string) => {
+    const m = v.match(/^([\d.]+)rem$/);
+    return m ? `${parseFloat(m[1]) * density}rem` : v;
+  };
+  Object.entries(spacing.values).forEach(([k, v]) => {
+    if (k === "0" || k === "px") set(vars, `--spacing-${k}`, v);
+    else set(vars, `--spacing-${k}`, scaleRem(v));
+  });
 
   // Transitions
   Object.entries(transitions.duration).forEach(([k, v]) => {
@@ -207,6 +219,18 @@ export function serializeVariablesToCSS(
   lines.push("");
   lines.push("/* Theme utility classes */");
 
+  // Border style and opacity: apply theme's border-style and opacity
+  lines.push(`
+${selector}, ${selector} * {
+  border-style: var(--border-style, solid);
+}
+${selector} * {
+  --color-border-base: color-mix(in srgb, var(--color-border-base) calc(var(--border-opacity, 1) * 100%), transparent);
+  --color-border-subtle: color-mix(in srgb, var(--color-border-subtle) calc(var(--border-opacity, 1) * 100%), transparent);
+  --color-border-strong: color-mix(in srgb, var(--color-border-strong) calc(var(--border-opacity, 1) * 100%), transparent);
+  --color-border-glass: color-mix(in srgb, var(--color-border-glass) calc(var(--border-opacity, 1) * 100%), transparent);
+}`);
+
   // Glassmorphism
   if (
     theme.effects.material === "glass" ||
@@ -219,9 +243,36 @@ export function serializeVariablesToCSS(
   backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
   -webkit-backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
   border: var(--border-width-1) var(--border-style) var(--color-border-glass);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 .surface-glass:hover {
   background: var(--color-surface-glass-hover);
+}
+/* Glass context: outline/ghost buttons and inputs get translucent styling */
+.glass-context .surface-glass button.bg-background {
+  background: transparent !important;
+  backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
+  border-color: var(--color-border-glass);
+}
+.glass-context .surface-glass input {
+  background: var(--color-surface-glass) !important;
+  backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
+  border-color: var(--color-border-glass);
+}
+.glass-context .surface-glass [role="alert"] {
+  background: var(--color-surface-glass) !important;
+  backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
+  border-color: var(--color-border-glass);
+}
+.glass-context .surface-glass [role="tablist"],
+.glass-context .surface-glass [role="tablist"] [data-state="active"] {
+  background: var(--color-surface-glass) !important;
+  backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate)) brightness(var(--backdrop-brightness));
+  border-color: var(--color-border-glass);
 }`);
   }
 

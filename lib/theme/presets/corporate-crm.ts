@@ -1,5 +1,6 @@
 import type { ThemeSpec } from "../schema/theme-spec";
 import {
+  baseLayoutGaps,
   baseSpacingValues,
   baseTypography,
   baseTransitions,
@@ -104,12 +105,12 @@ export const corporateCrm: ThemeSpec = {
   },
   shadows: {
     none: "none",
-    sm: "none",
-    md: "none",
-    lg: "none",
-    xl: "none",
-    "2xl": "none",
-    inner: "none",
+    sm: "0 1px 2px rgba(0,0,0,0.04)",
+    md: "0 2px 4px rgba(0,0,0,0.05)",
+    lg: "0 4px 8px rgba(0,0,0,0.06)",
+    xl: "0 8px 16px rgba(0,0,0,0.07)",
+    "2xl": "0 12px 24px rgba(0,0,0,0.08)",
+    inner: "inset 0 1px 2px rgba(0,0,0,0.03)",
     glow: {
       primary: "0 0 0 transparent",
       secondary: "0 0 0 transparent",
@@ -132,7 +133,7 @@ export const corporateCrm: ThemeSpec = {
   layout: {
     density: "compact",
     cardPadding: "1rem",
-    gap: { sm: "0.5rem", md: "0.75rem", lg: "1rem" },
+    gap: baseLayoutGaps.compact,
     containerMaxWidth: "1400px",
   },
 };

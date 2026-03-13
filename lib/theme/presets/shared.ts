@@ -1,5 +1,12 @@
 import type { ThemeSpec } from "../schema/theme-spec";
 
+/** Layout gap scales aligned with density (compact | comfortable | spacious) */
+export const baseLayoutGaps = {
+  compact: { sm: "0.5rem", md: "1rem", lg: "1.5rem" },
+  comfortable: { sm: "0.75rem", md: "1.25rem", lg: "2rem" },
+  spacious: { sm: "1rem", md: "1.5rem", lg: "2.5rem" },
+} as const;
+
 /** Base spacing values shared across presets */
 export const baseSpacingValues = {
   0: "0",

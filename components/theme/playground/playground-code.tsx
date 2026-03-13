@@ -22,7 +22,7 @@ export function PlaygroundCode() {
     <div className="flex h-full flex-col">
       <div className="flex items-center justify-between border-b px-3 py-2">
         <span className="text-sm font-medium">CSS Variables</span>
-        <Button variant="ghost" size="sm" onClick={handleCopy}>
+        <Button variant="ghost" size="sm" onClick={handleCopy} className="mr-7">
           {copied ? (
             <>
               <Check className="mr-2 h-4 w-4" />

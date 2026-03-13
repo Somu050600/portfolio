@@ -15,25 +15,73 @@ const ARCHETYPES: VisualArchetype[] = [
   "pastel-soft",
   "monochrome",
   "editorial",
+  "synthwave",
+  "valentine",
+  "halloween",
+  "forest",
+  "luxury",
+  "dracula",
+  "aqua",
+  "wireframe",
 ];
 
-const ARCHETYPE_COLORS: Record<VisualArchetype, { bg: string; accent: string }> =
-  {
-    "neon-dark": { bg: "#0a0a0a", accent: "#4ade80" },
-    "clean-minimal": { bg: "#f5f5f0", accent: "#a3e635" },
-    glassmorphic: {
-      bg: "linear-gradient(135deg, #fce7f3, #e9d5ff)",
-      accent: "#f97316",
-    },
-    "corporate-sharp": { bg: "#ffffff", accent: "#f59e0b" },
-    brutalist: { bg: "#1a1a1a", accent: "#ffffff" },
-    "retro-warm": { bg: "#f5f0e8", accent: "#8b4513" },
-    cyberpunk: { bg: "#0d0221", accent: "#ff00ff" },
-    "pastel-soft": { bg: "#fef3c7", accent: "#a78bfa" },
-    monochrome: { bg: "#ffffff", accent: "#0a0a0a" },
-    editorial: { bg: "#fafafa", accent: "#171717" },
-    custom: { bg: "#e5e5e5", accent: "#737373" },
-  };
+const ARCHETYPE_COLORS: Record<
+  VisualArchetype,
+  { c1: string; c2: string; c3: string; c4: string }
+> = {
+  "neon-dark": { c1: "#0a0a0a", c2: "#4ade80", c3: "#fb923c", c4: "#ffffff" },
+  "clean-minimal": {
+    c1: "#f5f5f0",
+    c2: "#a3e635",
+    c3: "#737373",
+    c4: "#0a0a0a",
+  },
+  glassmorphic: {
+    c1: "#fce7f3",
+    c2: "#e9d5ff",
+    c3: "#f97316",
+    c4: "#a78bfa",
+  },
+  "corporate-sharp": {
+    c1: "#ffffff",
+    c2: "#f59e0b",
+    c3: "#0a0a0a",
+    c4: "#737373",
+  },
+  brutalist: { c1: "#1a1a1a", c2: "#ffffff", c3: "#404040", c4: "#0a0a0a" },
+  "retro-warm": { c1: "#f5f0e8", c2: "#8b4513", c3: "#d4a574", c4: "#2d1810" },
+  cyberpunk: { c1: "#0d0221", c2: "#ff00ff", c3: "#00ffff", c4: "#ffff00" },
+  "pastel-soft": { c1: "#fef3c7", c2: "#a78bfa", c3: "#f9a8d4", c4: "#86efac" },
+  monochrome: { c1: "#ffffff", c2: "#0a0a0a", c3: "#737373", c4: "#e5e5e5" },
+  editorial: { c1: "#fafafa", c2: "#171717", c3: "#737373", c4: "#0a0a0a" },
+  synthwave: { c1: "#1a0a2e", c2: "#f472b6", c3: "#a78bfa", c4: "#38bdf8" },
+  valentine: { c1: "#fdf2f8", c2: "#ec4899", c3: "#f9a8d4", c4: "#831843" },
+  halloween: { c1: "#0a0a0a", c2: "#f97316", c3: "#fbbf24", c4: "#7c2d12" },
+  forest: { c1: "#0f172a", c2: "#22c55e", c3: "#15803d", c4: "#86efac" },
+  luxury: { c1: "#0a0a0a", c2: "#ca8a04", c3: "#a16207", c4: "#fef3c7" },
+  dracula: { c1: "#1e1e2e", c2: "#bd93f9", c3: "#ff79c6", c4: "#8be9fd" },
+  aqua: { c1: "#f0f9ff", c2: "#0ea5e9", c3: "#0284c7", c4: "#7dd3fc" },
+  wireframe: { c1: "#fafafa", c2: "#737373", c3: "#e5e5e5", c4: "#0a0a0a" },
+  custom: { c1: "#e5e5e5", c2: "#737373", c3: "#a3a3a3", c4: "#525252" },
+};
+
+function MiniSwatch({
+  colors,
+}: {
+  colors: { c1: string; c2: string; c3: string; c4: string };
+}) {
+  return (
+    <div
+      className="grid h-5 w-5 shrink-0 grid-cols-2 grid-rows-2 overflow-hidden rounded-[3px] border border-border/50"
+      aria-hidden
+    >
+      <div style={{ backgroundColor: colors.c1 }} />
+      <div style={{ backgroundColor: colors.c2 }} />
+      <div style={{ backgroundColor: colors.c3 }} />
+      <div style={{ backgroundColor: colors.c4 }} />
+    </div>
+  );
+}
 
 export function ArchetypeSelector({
   selected,
@@ -43,9 +91,9 @@ export function ArchetypeSelector({
   onSelect: (archetype: VisualArchetype) => void;
 }) {
   return (
-    <div className="space-y-2">
-      <h3 className="text-sm font-semibold">Archetype</h3>
-      <div className="grid grid-cols-2 gap-2">
+    <div className="space-y-1.5">
+      <h3 className="text-xs font-medium text-muted-foreground">Archetype</h3>
+      <div className="grid max-h-52 grid-cols-3 gap-1 overflow-y-auto border p-1">
         {ARCHETYPES.map((id) => {
           const config = ARCHETYPE_CONFIGS[id];
           const colors = ARCHETYPE_COLORS[id];
@@ -56,20 +104,13 @@ export function ArchetypeSelector({
               type="button"
               onClick={() => onSelect(id)}
               className={cn(
-                "flex flex-col overflow-hidden rounded-lg border-2 p-2 text-left transition-all hover:border-primary/50",
-                isSelected ? "border-primary" : "border-transparent"
+                "flex items-center gap-1.5 rounded px-1.5 py-1 text-left transition-colors hover:bg-muted/70",
+                isSelected ? "bg-primary/15 ring-1 ring-primary" : "",
               )}
             >
-              <div
-                className="mb-1.5 h-10 w-full rounded-md"
-                style={{
-                  background: colors.bg,
-                  boxShadow: `inset 0 0 0 1px ${colors.accent}20`,
-                }}
-              />
-              <span className="text-xs font-medium">{config.name}</span>
-              <span className="line-clamp-2 text-[10px] text-muted-foreground">
-                {config.description}
+              <MiniSwatch colors={colors} />
+              <span className="truncate text-[11px] font-medium">
+                {config.name}
               </span>
             </button>
           );

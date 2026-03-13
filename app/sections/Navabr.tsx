@@ -25,10 +25,16 @@ import LinkedinIcon from "./../assests/linkedin.svg";
 import TwitterIcon from "./../assests/twitter.svg";
 import { ModeToggle } from "@/components/theme-selector";
 
-const NavItems: { name: string; href: string; link?: boolean }[] = [
+const NavItems: {
+  name: string;
+  href: string;
+  link?: boolean;
+  beta?: boolean;
+}[] = [
   {
     name: "Playground",
     href: "/playground",
+    beta: true,
   },
   {
     name: "Work",
@@ -63,7 +69,7 @@ const Navabr = () => {
           <>
             {NavItems.map((item) => {
               return (
-                <div key={item.name}>
+                <div key={item.name} className="relative">
                   {item.link ? (
                     <Link
                       className="text-lg font-semibold"
@@ -77,6 +83,11 @@ const Navabr = () => {
                     <Link className="text-lg font-semibold" href={item.href}>
                       {item.name}
                     </Link>
+                  )}
+                  {item.beta && (
+                    <span className="absolute -top-1 -right-3 rounded bg-primary px-1 py-0 text-[9px] font-medium text-primary-foreground">
+                      beta
+                    </span>
                   )}
                 </div>
               );
@@ -104,8 +115,14 @@ const Navabr = () => {
                           href={item.href}
                           target={item.link ? "_blank" : ""}
                           rel={item.link ? "noopener noreferrer" : ""}
+                          className="relative inline-block"
                         >
                           {item.name}{" "}
+                          {item.beta && (
+                            <span className="ml-1 rounded bg-primary px-1 py-0.5 text-[9px] font-medium text-primary-foreground">
+                              beta
+                            </span>
+                          )}
                           {item.link ? (
                             <ArrowRight className="inline p-0" size={16} />
                           ) : (

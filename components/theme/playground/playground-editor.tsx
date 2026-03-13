@@ -2,7 +2,12 @@
 
 import { usePlayground } from "@/lib/theme/playground/playground-store";
 import { ArchetypeSelector } from "./editors/archetype-selector";
+import { BordersEditor } from "./editors/borders-editor";
 import { ColorEditor } from "./editors/color-editor";
+import { ShadowsEditor } from "./editors/shadows-editor";
+import { ArchetypeTweaksEditor } from "./editors/archetype-tweaks-editor";
+import { EffectsEditor } from "./editors/effects-editor";
+import { SpacingEditor } from "./editors/spacing-editor";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
@@ -39,7 +44,7 @@ export function PlaygroundEditor() {
   const { theme, generateFromArchetype } = usePlayground();
 
   return (
-    <div className="flex h-full flex-col overflow-auto">
+    <div className="flex h-full flex-col overflow-y-auto max-h-[calc(100vh-100px)] border">
       <CollapsibleSection title="Archetype" defaultOpen={true}>
         <ArchetypeSelector
           selected={theme.meta.archetype}
@@ -49,6 +54,27 @@ export function PlaygroundEditor() {
       <CollapsibleSection title="Colors" defaultOpen={true}>
         <ColorEditor />
       </CollapsibleSection>
+      <CollapsibleSection title="Borders & Radius" defaultOpen={false}>
+        <BordersEditor />
+      </CollapsibleSection>
+      <CollapsibleSection title="Shadows" defaultOpen={false}>
+        <ShadowsEditor />
+      </CollapsibleSection>
+      <CollapsibleSection title="Spacing" defaultOpen={false}>
+        <SpacingEditor />
+      </CollapsibleSection>
+      {["glassmorphic", "neon-dark", "cyberpunk", "synthwave"].includes(
+        theme.meta.archetype,
+      ) && (
+        <CollapsibleSection title="Effects" defaultOpen={false}>
+          <EffectsEditor />
+        </CollapsibleSection>
+      )}
+      {["glassmorphic", "brutalist"].includes(theme.meta.archetype) && (
+        <CollapsibleSection title="Archetype tweaks" defaultOpen={false}>
+          <ArchetypeTweaksEditor />
+        </CollapsibleSection>
+      )}
     </div>
   );
 }

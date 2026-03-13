@@ -155,6 +155,9 @@
 }
 
 /* Theme utility classes */
+.bg-theme-gradient {
+  background: var(--bg-gradient, var(--color-background-base));
+}
 .heading-style {
   text-transform: var(--heading-text-transform);
   font-weight: var(--heading-default-weight);
@@ -247,5 +250,10 @@ html {
     inset: 2px;
     background: var(--bg);
     border-radius: calc(0.75rem - 2px);
+  }
+
+  /* Glass theme: subtle hover lift, preserve translucency */
+  .card.surface-glass:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
 }

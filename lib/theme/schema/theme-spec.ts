@@ -262,6 +262,14 @@ export type VisualArchetype =
   | "pastel-soft"
   | "monochrome"
   | "editorial"
+  | "synthwave"
+  | "valentine"
+  | "halloween"
+  | "forest"
+  | "luxury"
+  | "dracula"
+  | "aqua"
+  | "wireframe"
   | "custom";
 
 export interface ThemeMeta {

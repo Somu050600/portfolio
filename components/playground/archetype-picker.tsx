@@ -16,6 +16,14 @@ const ARCHETYPES: VisualArchetype[] = [
   "pastel-soft",
   "monochrome",
   "editorial",
+  "synthwave",
+  "valentine",
+  "halloween",
+  "forest",
+  "luxury",
+  "dracula",
+  "aqua",
+  "wireframe",
 ];
 
 const ARCHETYPE_COLORS: Record<VisualArchetype, { bg: string; accent: string }> = {
@@ -29,6 +37,14 @@ const ARCHETYPE_COLORS: Record<VisualArchetype, { bg: string; accent: string }> 
   "pastel-soft": { bg: "#fef3c7", accent: "#a78bfa" },
   monochrome: { bg: "#ffffff", accent: "#0a0a0a" },
   editorial: { bg: "#fafafa", accent: "#171717" },
+  synthwave: { bg: "#1a0a2e", accent: "#f472b6" },
+  valentine: { bg: "#fdf2f8", accent: "#ec4899" },
+  halloween: { bg: "#0a0a0a", accent: "#f97316" },
+  forest: { bg: "#0f172a", accent: "#22c55e" },
+  luxury: { bg: "#0a0a0a", accent: "#ca8a04" },
+  dracula: { bg: "#1e1e2e", accent: "#bd93f9" },
+  aqua: { bg: "#f0f9ff", accent: "#0ea5e9" },
+  wireframe: { bg: "#fafafa", accent: "#737373" },
   custom: { bg: "#e5e5e5", accent: "#737373" },
 };
 

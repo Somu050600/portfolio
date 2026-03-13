@@ -1,5 +1,6 @@
 import type { ThemeSpec } from "../schema/theme-spec";
 import {
+  baseLayoutGaps,
   baseSpacingValues,
   baseTypography,
   createMeta,
@@ -49,19 +50,19 @@ export const glassWellness: ThemeSpec = {
     success: { base: "#10b981", foreground: "#ffffff" },
     info: { base: "#3b82f6", foreground: "#ffffff" },
     border: {
-      base: "rgba(0, 0, 0, 0.08)",
-      subtle: "rgba(0, 0, 0, 0.04)",
-      strong: "rgba(0, 0, 0, 0.15)",
-      glass: "rgba(255, 255, 255, 0.35)",
+      base: "rgba(255, 255, 255, 0.5)",
+      subtle: "rgba(255, 255, 255, 0.4)",
+      strong: "rgba(255, 255, 255, 0.6)",
+      glass: "rgba(255, 255, 255, 0.5)",
     },
     ring: "#f97316",
     surface: {
-      base: "rgba(255, 255, 255, 0.55)",
-      raised: "rgba(255, 255, 255, 0.7)",
+      base: "rgba(255, 255, 255, 0.35)",
+      raised: "rgba(255, 255, 255, 0.45)",
       overlay: "rgba(255, 255, 255, 0.85)",
-      inset: "rgba(255, 255, 255, 0.3)",
-      glass: "rgba(255, 255, 255, 0.45)",
-      glassHover: "rgba(255, 255, 255, 0.6)",
+      inset: "rgba(255, 255, 255, 0.25)",
+      glass: "rgba(255, 255, 255, 0.35)",
+      glassHover: "rgba(255, 255, 255, 0.5)",
     },
     chart: {
       series: [
@@ -95,7 +96,7 @@ export const glassWellness: ThemeSpec = {
   borders: {
     radius: {
       none: "0px",
-      sm: "8px",
+      sm: "12px",
       md: "16px",
       lg: "20px",
       xl: "24px",
@@ -104,7 +105,7 @@ export const glassWellness: ThemeSpec = {
     },
     width: { 0: "0px", 1: "1px", 2: "2px", 4: "4px", 8: "8px" },
     style: "solid",
-    opacity: 0.35,
+    opacity: 0.5,
   },
   shadows: {
     none: "none",
@@ -121,7 +122,7 @@ export const glassWellness: ThemeSpec = {
     },
   },
   effects: {
-    backdrop: { blur: "16px", saturate: "1.6", brightness: "1.05" },
+    backdrop: { blur: "20px", saturate: "1.8", brightness: "1.05" },
     material: "glass",
     noise: { enabled: true, opacity: 0.03, size: "fine" },
     glow: {
@@ -151,7 +152,7 @@ export const glassWellness: ThemeSpec = {
   layout: {
     density: "spacious",
     cardPadding: "1.5rem",
-    gap: { sm: "0.75rem", md: "1.25rem", lg: "2rem" },
+    gap: baseLayoutGaps.spacious,
     containerMaxWidth: "1200px",
   },
 };

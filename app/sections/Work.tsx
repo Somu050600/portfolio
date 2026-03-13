@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/drawer";
 import { Badge } from "@/components/ui/badge";
 import { useTheme } from "@/lib/theme";
+import { cn } from "@/lib/utils";
 
 export interface WorkExperienceModel {
   id: Number;
@@ -32,7 +33,7 @@ export interface WorkExperienceModel {
 const Work = () => {
   const [data, setData] = useState<WorkExperienceModel[]>();
   const cardsRef = useRef<HTMLDivElement | null>(null);
-  const { isDark, currentTheme } = useTheme();
+  const { isDark, currentTheme, isGlass } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,14 +57,25 @@ const Work = () => {
 
         (card as HTMLElement).style.setProperty("--mouse-x", `${x}px`);
         (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
-        (card as HTMLElement).style.setProperty(
-          "--bg",
-          isDark ? "rgb(0, 0, 0, 0.95)" : "rgb(255, 255, 255, 0.95)"
-        );
-        (card as HTMLElement).style.setProperty(
-          "--bg-hover",
-          currentTheme.colors.primary.base
-        );
+        if (isGlass) {
+          (card as HTMLElement).style.setProperty(
+            "--bg",
+            "transparent"
+          );
+          (card as HTMLElement).style.setProperty(
+            "--bg-hover",
+            isDark ? "rgba(255, 255, 255, 0.06)" : "rgba(255, 255, 255, 0.12)"
+          );
+        } else {
+          (card as HTMLElement).style.setProperty(
+            "--bg",
+            isDark ? "rgb(0, 0, 0, 0.95)" : "rgb(255, 255, 255, 0.95)"
+          );
+          (card as HTMLElement).style.setProperty(
+            "--bg-hover",
+            currentTheme.colors.primary.base
+          );
+        }
       }
     };
 
@@ -78,7 +90,7 @@ const Work = () => {
         cardsContainer.removeEventListener("mousemove", handleMouseMove);
       }
     };
-  }, [isDark, currentTheme.colors.primary.base]);
+  }, [isDark, isGlass, currentTheme.colors.primary.base]);
 
   return (
     <div id="work" className="w-full py-12 md:py-12 lg:py-12">
@@ -105,7 +117,10 @@ const Work = () => {
                 data-aos="fade-up"
                 data-aos-offset="100"
                 data-aos-duration={300 + index * 100}
-                className=" w-full flex flex-col p-4 group overflow-hidden rounded-xl shadow-lg border card"
+                className={cn(
+                  "w-full flex flex-col p-4 group overflow-hidden rounded-xl shadow-lg border card",
+                  isGlass && "surface-glass"
+                )}
               >
                 <Image
                   alt={`Experience ${index + 1}`}

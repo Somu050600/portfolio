@@ -1,5 +1,6 @@
 import type { ThemeSpec } from "../schema/theme-spec";
 import {
+  baseLayoutGaps,
   baseSpacingValues,
   baseTypography,
   baseTransitions,
@@ -132,7 +133,7 @@ export const neonDashboard: ThemeSpec = {
   layout: {
     density: "compact",
     cardPadding: "1.25rem",
-    gap: { sm: "0.5rem", md: "1rem", lg: "1.5rem" },
+    gap: baseLayoutGaps.compact,
     containerMaxWidth: "1400px",
   },
 };

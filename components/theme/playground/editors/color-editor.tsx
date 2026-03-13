@@ -1,6 +1,7 @@
 "use client";
 
 import { HexColorPicker } from "react-colorful";
+import { generateTheme } from "@/lib/theme/engine/theme-generator";
 import { usePlayground } from "@/lib/theme/playground/playground-store";
 import {
   getContrastRatio,
@@ -9,7 +10,9 @@ import {
 } from "@/lib/theme/engine/color-utils";
 import { ContrastBadge } from "../shared/contrast-badge";
 import { ColorSwatch } from "../shared/color-swatch";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Palette } from "lucide-react";
 import { useState } from "react";
 
 const TOKENS = [
@@ -64,9 +67,31 @@ export function ColorEditor() {
     }
   };
 
+  const handleGeneratePalette = () => {
+    const generated = generateTheme({
+      archetype: theme.meta.archetype,
+      isDark: theme.meta.isDark,
+      baseHue: Math.floor(Math.random() * 360),
+      seed: Math.random().toString(36).slice(2),
+    });
+    updateTheme({ colors: generated.colors });
+  };
+
   return (
     <div className="space-y-3">
-      <h3 className="text-sm font-semibold">Colors</h3>
+      <div className="flex items-center justify-between">
+        <h3 className="text-sm font-semibold">Colors</h3>
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-7 gap-1 px-2 text-xs"
+          onClick={handleGeneratePalette}
+          title="Generate new color palette (keeps borders, shadows, etc.)"
+        >
+          <Palette className="h-3.5 w-3.5" />
+          Generate palette
+        </Button>
+      </div>
       <div className="flex flex-wrap gap-2">
         {TOKENS.map((t) => {
           const hex =

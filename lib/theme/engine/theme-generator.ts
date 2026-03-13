@@ -42,6 +42,14 @@ const ARCHETYPES: VisualArchetype[] = [
   "pastel-soft",
   "monochrome",
   "editorial",
+  "synthwave",
+  "valentine",
+  "halloween",
+  "forest",
+  "luxury",
+  "dracula",
+  "aqua",
+  "wireframe",
   "custom",
 ].filter((a) => a !== "custom") as VisualArchetype[];
 
@@ -53,7 +61,7 @@ function lerp(a: number, b: number, t: number): number {
   return a + (b - a) * t;
 }
 
-function generateShadows(
+export function generateShadows(
   style: string,
   colored: boolean,
   glow: boolean,
@@ -206,16 +214,16 @@ export function generateTheme(options?: GeneratorOptions): ThemeSpec {
     config.effects.material === "frosted" ||
     config.effects.material === "translucent";
 
-  const glassAlpha = isGlass ? lerp(0.35, 0.6, rng()) : 0.5;
+  const glassAlpha = isGlass ? lerp(0.28, 0.42, rng()) : 0.5;
   const glassColor = isDark
-    ? hexToRgba("#ffffff", glassAlpha * 0.15)
+    ? hexToRgba("#ffffff", glassAlpha * 0.12)
     : hexToRgba("#ffffff", glassAlpha);
   const glassHover = isDark
-    ? hexToRgba("#ffffff", glassAlpha * 0.25)
-    : hexToRgba("#ffffff", Math.min(1, glassAlpha + 0.15));
+    ? hexToRgba("#ffffff", glassAlpha * 0.2)
+    : hexToRgba("#ffffff", Math.min(0.65, glassAlpha + 0.12));
 
   const borderGlass = isGlass
-    ? (isDark ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.35)")
+    ? (isDark ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.55)")
     : borderBase;
 
   let background: ThemeSpec["colors"]["background"] = {
@@ -323,9 +331,9 @@ export function generateTheme(options?: GeneratorOptions): ThemeSpec {
       success: { base: "#22c55e", foreground: "#ffffff" },
       info: { base: "#3b82f6", foreground: "#ffffff" },
       border: {
-        base: borderBase,
-        subtle: borderSubtle,
-        strong: borderStrong,
+        base: isGlass ? borderGlass : borderBase,
+        subtle: isGlass ? borderGlass : borderSubtle,
+        strong: isGlass ? borderGlass : borderStrong,
         glass: borderGlass,
       },
       ring: primaryHex,

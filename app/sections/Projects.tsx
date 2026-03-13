@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useTheme } from "@/lib/theme";
+import { cn } from "@/lib/utils";
 import { LinkForwardIcon } from "hugeicons-react";
 
 export interface ProjectsModel {
@@ -33,7 +34,7 @@ export interface ProjectsModel {
 const Projects = () => {
   const [data, setData] = useState<ProjectsModel[]>();
   const cardsRef = useRef<HTMLDivElement | null>(null);
-  const { isDark, currentTheme } = useTheme();
+  const { isDark, currentTheme, isGlass } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,14 +64,22 @@ const Projects = () => {
 
         (card as HTMLElement).style.setProperty("--mouse-x", `${x}px`);
         (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
-        (card as HTMLElement).style.setProperty(
-          "--bg",
-          isDark ? "rgb(0, 0, 0, 0.95)" : "rgb(255, 255, 255, 0.95)"
-        );
-        (card as HTMLElement).style.setProperty(
-          "--bg-hover",
-          currentTheme.colors.primary.base
-        );
+        if (isGlass) {
+          (card as HTMLElement).style.setProperty("--bg", "transparent");
+          (card as HTMLElement).style.setProperty(
+            "--bg-hover",
+            isDark ? "rgba(255, 255, 255, 0.06)" : "rgba(255, 255, 255, 0.12)"
+          );
+        } else {
+          (card as HTMLElement).style.setProperty(
+            "--bg",
+            isDark ? "rgb(0, 0, 0, 0.95)" : "rgb(255, 255, 255, 0.95)"
+          );
+          (card as HTMLElement).style.setProperty(
+            "--bg-hover",
+            currentTheme.colors.primary.base
+          );
+        }
       }
     };
 
@@ -85,7 +94,7 @@ const Projects = () => {
         cardsContainer.removeEventListener("mousemove", handleMouseMove);
       }
     };
-  }, [isDark, currentTheme.colors.primary.base]);
+  }, [isDark, isGlass, currentTheme.colors.primary.base]);
 
   return (
     <div id="projects" className="w-full py-12 md:py-12 lg:py-12">
@@ -120,7 +129,10 @@ const Projects = () => {
                 data-aos-offset="50"
                 data-aos-delay={index * 100}
                 data-aos-duration={300 + index * 100}
-                className="flex flex-col p-4 group overflow-hidden rounded-xl shadow-lg border card"
+                className={cn(
+                  "flex flex-col p-4 group overflow-hidden rounded-xl shadow-lg border card",
+                  isGlass && "surface-glass"
+                )}
               >
                 <Image
                   unoptimized
