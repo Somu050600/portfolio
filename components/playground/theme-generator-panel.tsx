@@ -26,6 +26,7 @@ export function ThemeGeneratorPanel({
     harmony: HarmonyType;
     isDark: boolean;
     saturation: "muted" | "normal" | "vivid";
+    contrastMode: "normal" | "high" | "highest";
     seed: string;
   };
   onChange: (o: typeof options) => void;
@@ -97,6 +98,24 @@ export function ThemeGeneratorPanel({
             <option value="muted">Muted</option>
             <option value="normal">Normal</option>
             <option value="vivid">Vivid</option>
+          </select>
+        </div>
+
+        <div>
+          <Label className="text-xs">Contrast</Label>
+          <select
+            value={options.contrastMode}
+            onChange={(e) =>
+              onChange({
+                ...options,
+                contrastMode: e.target.value as "normal" | "high" | "highest",
+              })
+            }
+            className="mt-1 w-full rounded-md border bg-background px-3 py-2 text-sm"
+          >
+            <option value="normal">Normal</option>
+            <option value="high">High (AA)</option>
+            <option value="highest">Highest (AAA)</option>
           </select>
         </div>
 

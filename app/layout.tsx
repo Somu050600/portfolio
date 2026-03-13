@@ -5,7 +5,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navabr from "./sections/Navabr";
+import { ConditionalLayout } from "./conditional-layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,16 +51,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className + " scrollbar-hide min-h-screen"}>
         <Script
           src="/theme-init.js"
           strategy="beforeInteractive"
         />
         <ThemeProvider defaultTheme="monochrome" storageKey="portfolio-theme">
-          <Navabr />
+          <ConditionalLayout>{children}</ConditionalLayout>
           <SpeedInsights />
-          <main>{children}</main>
           <Toaster />
         </ThemeProvider>
       </body>
