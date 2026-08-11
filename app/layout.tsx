@@ -5,6 +5,7 @@ import Navabr from "./sections/Navabr";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
+import AnnouncementBanner from "./sections/AnnouncementBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,6 +59,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <AnnouncementBanner />
           <Navabr />
           <SpeedInsights />
           <main>{children}</main>
